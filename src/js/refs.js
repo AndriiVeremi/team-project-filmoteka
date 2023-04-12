@@ -1,3 +1,6 @@
-export const refs = {
-// refs
+export default function getRefs() {
+    const refs = {
+        // refs
+    };
+    return refs;
 };
