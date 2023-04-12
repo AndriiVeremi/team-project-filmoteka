@@ -1,5 +1,5 @@
-import APIservice from './js/fetch-API';
 import getRefs from './js/refs';
+import APIservice from './js/fetch-API';
 
-const refs = getRefs();
+// const refs = getRefs();
 
