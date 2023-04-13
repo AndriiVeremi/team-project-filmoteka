@@ -44,7 +44,7 @@ class ApiClient {
         }
     }
 
-    // Запит на отримання відео по ID
+    // Запит на отримання відео/трейлера по ID
     async getMoveVideo(moveId) {
         try {
             const fetchLink = `${BASE_URL}movie/${moveId}/videos?api_key=${API_KEY}&language=en-US`;
@@ -55,6 +55,7 @@ class ApiClient {
         }
     }
 
+   
     set query(newQuery) {
         this.searchQuery = newQuery;
     }
