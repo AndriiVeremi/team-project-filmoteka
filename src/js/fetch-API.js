@@ -8,9 +8,10 @@ class ApiClient {
 
     constructor() {
         this.page = 1;
-        this.searchQuery = '';      
+        this.searchQuery = '';
     }
 
+    // Запит на список найпопулярніших
     async getMoveTrending() {
         try {
             const fetchLink = `${BASE_URL}/trending/movie/day?api_key=${API_KEY}&language=en-US&page=${this.page}`;
@@ -21,6 +22,7 @@ class ApiClient {
         }
     }
 
+    // Запит за ключовим словом
     async getMoveName() {
         try {
             const fetchLink = `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&page=${this.page}&query=${this.searchQuery}`;
@@ -28,6 +30,28 @@ class ApiClient {
             return response;
         } catch (error) {
             Notify.failure(`Sorry. Please try again.`);
+        }
+    }
+
+    // Запит за інформації про фільм по ID
+    async getMoveInfo(moveId) {
+        try {
+            const url = `${BASE_URL}movie/${id}?api_key=${API_KEY}&language=en-US`;
+            const response = await axios.get(url);
+            return response;
+        } catch (error) {
+            Notify.failure('Oops, an error occurred');
+        }
+    }
+
+    // Запит на отримання відео по ID
+    async getMoveVideo(moveId) {
+        try {
+            const url = `${BASE_URL}movie/${id}/videos?api_key=${API_KEY}&language=en-US`;
+            const response = await axios.get(url);
+            return response;
+        } catch (error) {
+            Notify.failure('Oops, an error occurred');
         }
     }
 
