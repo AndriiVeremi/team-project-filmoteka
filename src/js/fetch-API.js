@@ -36,8 +36,8 @@ class ApiClient {
     // Запит за інформації про фільм по ID
     async getMoveInfo(moveId) {
         try {
-            const url = `${BASE_URL}movie/${id}?api_key=${API_KEY}&language=en-US`;
-            const response = await axios.get(url);
+            const fetchLink = `${BASE_URL}movie/${moveId}?api_key=${API_KEY}&language=en-US`;
+            const response = await axios.get(fetchLink);
             return response;
         } catch (error) {
             Notify.failure('Oops, an error occurred');
@@ -47,8 +47,8 @@ class ApiClient {
     // Запит на отримання відео по ID
     async getMoveVideo(moveId) {
         try {
-            const url = `${BASE_URL}movie/${id}/videos?api_key=${API_KEY}&language=en-US`;
-            const response = await axios.get(url);
+            const fetchLink = `${BASE_URL}movie/${moveId}/videos?api_key=${API_KEY}&language=en-US`;
+            const response = await axios.get(fetchLink);
             return response;
         } catch (error) {
             Notify.failure('Oops, an error occurred');
