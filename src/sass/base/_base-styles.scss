@@ -1,5 +1,5 @@
 body {
- //
+  //
 }
 
 img {
@@ -10,12 +10,12 @@ img {
 
 .container {
   max-width: 1280px;
-  padding-left: 20px;
-  padding-right: 20px;
   margin: 0 auto;
 
   @media screen and (min-width: 480px) {
     width: 480px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   @media screen and (min-width: 768px) {
