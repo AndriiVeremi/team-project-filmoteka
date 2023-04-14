@@ -3,7 +3,7 @@
       padding-top: 20px;
       padding-bottom: 60px;
       margin: 0px;
-      background-color: #ffff;
+      background-color:#F0F0F0;;
       
       @media screen and (min-width: 768px) {
         padding-top: 30px;
@@ -11,30 +11,6 @@
       }
     
     }
-
- .container-main {
-      width: 100%;
-      padding-left: 20px;
-      padding-right: 20px;
-      margin: 0 auto;
-    
-      @media screen and (min-width: 480px) {
-        width: 480px;
-      }
-    
-      @media screen and (min-width: 768px) {
-        width: 768px;
-        padding-left: 32px;
-        padding-right: 32px;
-      }
-    
-      @media screen and (min-width: 1280px) {
-        width: 1280px;
-        padding-left: 32px;
-        padding-right: 32px;
-      }
- }
-
 
 .gallery {
   display: flex;
@@ -53,7 +29,8 @@
     margin-left: -16px;
   }
 
-  &__item {
+}
+.gallery-item{
     margin-left: 20px;
     margin-top: 20px;
 
@@ -68,9 +45,8 @@
       margin-left: 16px;
       margin-top: 32px;
     }
-  }
 }
-  .card-wrapper {
+  .card{
           height: 402px;
           margin-bottom: 10px;
           border-radius: 5px;
@@ -81,13 +57,13 @@
             height: 455px;
           }
       
-          @include breakpoint(desktop) {
+          @media screen and (min-width: 1280px) {
             height: 574px;
           }
         }
-  .card__title {
+  .card-title {
       text-transform: uppercase;
-      color: #000;;
+      color:rgba(0, 0, 0, 1);
       font-size: 12px;
       line-height: 1.17;
       margin-bottom: 4px;  
@@ -95,8 +71,8 @@
         font-size: 20px;
         line-height: 1.2;
   }}
-  .card__text {
-    color:#B92F2C;;
+  .card-text {
+    color:rgba(185, 47, 44, 1);
     font-size: 12px;
     line-height: 1.17;
     margin-bottom: 4px;  
@@ -104,4 +80,48 @@
       font-size: 20px;
       line-height: 1.2;
   }};
- 
+  .container-main {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0 auto;
+  
+    @media screen and (min-width: 480px) {
+      width: 480px;
+    }
+  
+    @media screen and (min-width: 768px) {
+      width: 768px;
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+  
+    @media screen and (min-width: 1280px) {
+      width: 1280px;
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+} 
+
+// .container{
+//   width: 100%;
+//   padding-left: 20px;
+//   padding-right: 20px;
+//   margin: 0 auto;
+
+//   @media screen and (min-width: 480px) {
+//     width: 480px;
+//   }
+
+//   @media screen and (min-width: 768px) {
+//     width: 768px;
+//     padding-left: 32px;
+//     padding-right: 32px;
+//   }
+
+//   @media screen and (min-width: 1280px) {
+//     width: 1280px;
+//     padding-left: 32px;
+//     padding-right: 32px;
+//   }
+// }
