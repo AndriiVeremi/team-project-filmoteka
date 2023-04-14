@@ -1,0 +1,39 @@
+.footer {
+    display: flex;
+    justify-content: center;
+    padding: 28px 10px;
+    background-color: rgba(247, 247, 247, 1);
+
+    @media screen and (min-width: 768px){
+        padding: 29px 10px;
+    }
+  
+    }
+ 
+  .footer-container{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .footer-text:not(:last-child){
+    margin-right: 5px;
+  }
+  .footer-text{
+      white-space: nowrap;
+      color: rgba(84, 84, 84, 1);
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.14;
+
+      @media screen and (min-width: 768px){
+      font-size: 16px;
+      line-height: 1.1;
+    }
+  }
+  .footer-link{
+    text-decoration: underline;
+  }
+  .footer-icon {
+    margin-right: 5px;
+  }
