@@ -54,6 +54,17 @@ class ApiClient {
             Notify.failure('Oops, an error occurred');
         }
     }
+    
+    // Запит на масив об'єктів жанрів
+    async getMoveGanres() {
+        try {
+            const fetchLink = `${BASE_URL}genre/movie/list?api_key=${API_KEY}&language=en-US&page=${this.page}`;
+            const response = await axios.get(fetchLink);
+            return response;
+        } catch (error) {
+            Notify.failure('Oops, an error occurred');
+        }
+    }
 
    
     set query(newQuery) {
