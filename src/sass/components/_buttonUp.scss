@@ -1,22 +1,14 @@
 .go-top {
-  position: fixed; /* фиксированное позиционирование */
-  left: 20px; /* отступ слева 20px */
-  top: 50%; /* выравниваем по центру */
-  transform: translateY(-50%); /* выравниваем по центру */
-  cursor: pointer; /* при наведении меняем курсор */
-  display: none; /* по умолчанию скрываем кнопку */
+  position: fixed;
+  right: 150px; 
+  top: 90%; 
+  transform: translateY(-50%); 
+  cursor: pointer; 
+  display: none;
   font-size: 20px;
-  
   padding: 15px 10px;
 }
 
-/* меняем прозрачность при наведении мышкой */
-.go-top:hover {
- 
-  // transform: scale(0.9); 
-}
-
-/* модификатор для отображения кнопки */
 .go-top--show {
   display: block;
 }

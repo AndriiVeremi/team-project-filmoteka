@@ -1,32 +1,24 @@
-// считываем кнопку
-const goTopBtn = document.querySelector(".go-top");
+import getRefs from './refs.js';
+const refs = getRefs();
 
-// обработчик на скролл окна
 window.addEventListener("scroll", trackScroll);
-// обработчик на нажатии
-goTopBtn.addEventListener("click", goTop);
+refs.goTopBtn.addEventListener("click", goTop);
 
 function trackScroll() {
-    // вычисляем положение от верхушки страницы
     const scrolled = window.pageYOffset;
-    // считаем высоту окна браузера
     const coords = document.documentElement.clientHeight;
-    // если вышли за пределы первого окна
-    if (scrolled > coords) {
-        // кнопка появляется
-        goTopBtn.classList.add("go-top--show");
+
+    if (scrolled > coords) {       
+        refs.goTopBtn.classList.add("go-top--show");
     } else {
-        // иначе исчезает
-        goTopBtn.classList.remove("go-top--show");
+        refs.goTopBtn.classList.remove("go-top--show");
     }
 }
 
-function goTop() {
-    // пока не вернулись в начало страницы
-    if (window.pageYOffset > 0) {
-        // скроллим наверх
-        window.scrollBy(0, -75); // второй аргумент - скорость
-        setTimeout(goTop, 0); // входим в рекурсию
+function goTop() { 
+    if (window.pageYOffset > 0) {       
+        window.scrollBy(0, -65); 
+        setTimeout(goTop, 0); 
     }
 }
 
