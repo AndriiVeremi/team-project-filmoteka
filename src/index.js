@@ -3,7 +3,8 @@ import './js/fetch-API.js';
 import './js/searchFilms';
 import './js/popularMovies';
 import './js/renderMarkup';
-import './js/pagination.js';
+// import './js/pagination.js';
+import './js/buttonUp.js'
 
 
 
