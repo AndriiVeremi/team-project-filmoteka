@@ -1,13 +1,3 @@
-
-
-
-
-
-
-
-
-
-
 import './js/fetch-API.js';
 // import './js/localStorage.js';
 // import './js/openModal.js';
