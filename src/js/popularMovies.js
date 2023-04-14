@@ -5,6 +5,8 @@ import { renderMarkup } from './renderMarkup.js';
 const refs = getRefs();
 const API = new APIservice();
 
+popularMovies();
+
 export async function popularMovies() {
   try {
     const data = await API.getMoveTrending();
