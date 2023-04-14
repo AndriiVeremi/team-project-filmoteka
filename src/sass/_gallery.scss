@@ -1,3 +1,8 @@
+.section {
+  padding-top: 20px;
+  padding-bottom: 60px;
+  margin: 0px;
+  background-color: #ffff;
 
     .section {
       padding-top: 20px;
@@ -11,6 +16,7 @@
       }
     
     }
+
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -18,13 +24,13 @@
   align-items: center;
   margin-left: -20px;
 
-  @media screen and (min-width: 768px) and (max-width: 1279){
+  @media screen and (min-width: 768px) and (max-width: 1279) {
     flex-direction: row;
     align-items: flex-start;
     margin-left: -32px;
   }
 
-  @media screen and (min-width: 1280px){
+  @media screen and (min-width: 1280px) {
     margin-left: -16px;
   }
 
@@ -33,7 +39,7 @@
     margin-left: 20px;
     margin-top: 20px;
 
-    @media screen and (min-width: 768px) and (max-width: 1279){
+    @media screen and (min-width: 768px) and (max-width: 1279) {
       flex-basis: calc((100% - (2 * 32px)) / 2);
       margin-left: 32px;
       margin-top: 32px;
@@ -102,25 +108,5 @@
     }
 } 
 
-// .container{
-//   width: 100%;
-//   padding-left: 20px;
-//   padding-right: 20px;
-//   margin: 0 auto;
 
-//   @media screen and (min-width: 480px) {
-//     width: 480px;
-//   }
 
-//   @media screen and (min-width: 768px) {
-//     width: 768px;
-//     padding-left: 32px;
-//     padding-right: 32px;
-//   }
-
-//   @media screen and (min-width: 1280px) {
-//     width: 1280px;
-//     padding-left: 32px;
-//     padding-right: 32px;
-//   }
-// }
