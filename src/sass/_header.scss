@@ -1,10 +1,20 @@
 .header {
     min-width: 320px;
-    height: 100vh;
+    // height: 100vh;
 }
 
-.header .container { 
-    padding: 14px;
+.header .container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    @media screen and (min-width: 768px) {
+        margin-top: 32px;
+        margin-bottom: 32px;
+    }
+}
+
+.header-wrap { 
+    padding: 14px 14px 20px 14px;
     border-radius: 15px;
 
 background-image: 
@@ -38,6 +48,9 @@ background-image:
 
 @media screen and (min-width: 1200px) {
     height: 316px;
+    padding-top: 16px;
+    padding-bottom: 32px;
+    padding-left: 32px;
  
 background-image: 
     url("../images/header/img_1216.jpg");
@@ -51,17 +64,38 @@ background-image:
 }
 }
 
+.nav-wrap {
+    @media screen and (min-width: 768px) {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        gap: 4px;
+    }
+
+    @media screen and (min-width: 1200px) {
+        gap: 8px;
+    }
+}
+
 .home-nav, .library-nav {
     display: flex;
     gap: 4px;
+
+    @media screen and (min-width: 1200px) {
+        gap: 8px;
+    }
 }
 
 .library-nav {
     display: none;
+    justify-content: center;
+    margin-top: 16px;
 }
 
-.nav-item {
-    display: inline-block;
+.nav-link {
+    display: inline-flex;
+    align-items: center;
+    height: 34px;
     padding: 10px 26px;
     border-radius: 100px;
     background-color: #fff;
@@ -71,7 +105,20 @@ background-image:
 
     @media screen and (min-width: 768px) {
         padding: 12px 24px;
+        height: 38px;
     }
+
+    @media screen and (min-width: 1200px) {
+        padding: 14px 32px;
+        height: 42px;
+    }
+}
+
+.home-nav .nav-link:hover,
+.home-nav .nav-link:focus,
+.home-nav .nav-link:active {
+    background-color: $main-text;
+    color: #fff;
 }
 
 .search-form {
@@ -81,6 +128,7 @@ background-image:
 
     @media screen and (min-width: 768px) {
         margin-top: 0;
+        margin-bottom: 0;
     }
 }
 
@@ -97,6 +145,20 @@ background-image:
     line-height: 1.17;
 
     margin-bottom: 312px;
+
+    @media screen and (min-width: 768px) {
+        margin-bottom: 105px;
+        width: 165px;
+        height: 38px;
+        padding: 11px 16px;
+    }
+
+    @media screen and (min-width: 1200px) {
+        margin-bottom: 151px;
+        width: 187px;
+        height: 42px;
+        padding: 13px 16px;
+    }
 }
 
 .icon-search {
@@ -105,20 +167,57 @@ background-image:
     right: 14px;
     fill: $main-text;
 
-    margin-left: 45px;
+    @media screen and (min-width: 768px) {
+        width: 16px;
+        height: 16px;
+        top: 11px;
+        right: 16px;
+    }
+
+    @media screen and (min-width: 1200px) {
+        top: 13px;
+        right: 16px;
+    }
 }
 
 .logo {
-    margin-left: 31px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and (min-width: 768px) {
+        justify-content: flex-start;
+    }
+}
+
+.logo-icon {
+    @media screen and (min-width: 768px) {
+        width: 40px;
+        height: 40px;
+    }
+
+    @media screen and (min-width: 1200px) {
+        width: 59px;
+        height: 59px;
+    }
 }
 
 .logo-name {
     display: inline-flex;
     align-items: center;
     margin-left: 8px;
-    font-weight: 500;
     font-size: 32px;
     line-height: 1.19;
     color: #FFFFFF;
+
+    @media screen and (min-width: 768px) {
+        font-size: 40px;
+        line-height: 1.18;
+    }
+
+    @media screen and (min-width: 1200px) {
+        font-size: 64px;
+        line-height: 1.17;
+    }
 }
 
