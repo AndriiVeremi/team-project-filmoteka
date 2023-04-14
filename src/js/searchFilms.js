@@ -1,5 +1,7 @@
 import ApiClient from './fetch-API';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { renderMarkup } from './renderMarkup';
+import  getRefs  from './refs';
 
 
 const searchForm = document.querySelector('.search-form');
@@ -11,6 +13,7 @@ searchForm.addEventListener('submit', onSearch);
 async function onSearch(e) {
     e.preventDefault();
     client.resetPage();
+    clearGallery();
     const searchQuery = e.currentTarget.elements.searchQuery.value
         .trim()
         .toLowerCase();
@@ -28,10 +31,14 @@ async function onSearch(e) {
         Notify.failure("Search result not successful. Enter the correct movie name.");
         return;
     }
-    console.log(resp.data.results);
+    renderMarkup(resp.data.results);
     clearInput();
 }
 
 function clearInput() {
     input.value = '';
+}
+
+function clearGallery() {
+    getRefs().gallery.innerHTML = '';
 }
