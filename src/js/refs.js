@@ -1,6 +1,6 @@
 export default function getRefs() {
     const refs = {
-        // refs
+        gallery: document.querySelector('.gallery'),
     };
     return refs;
 };
