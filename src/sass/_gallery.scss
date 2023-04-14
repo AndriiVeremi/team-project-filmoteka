@@ -1,0 +1,107 @@
+
+    .section {
+      padding-top: 20px;
+      padding-bottom: 60px;
+      margin: 0px;
+      background-color: #ffff;
+      
+      @media screen and (min-width: 768px) {
+        padding-top: 30px;
+        padding-bottom: 60px;
+      }
+    
+    }
+
+ .container-main {
+      width: 100%;
+      padding-left: 20px;
+      padding-right: 20px;
+      margin: 0 auto;
+    
+      @media screen and (min-width: 480px) {
+        width: 480px;
+      }
+    
+      @media screen and (min-width: 768px) {
+        width: 768px;
+        padding-left: 32px;
+        padding-right: 32px;
+      }
+    
+      @media screen and (min-width: 1280px) {
+        width: 1280px;
+        padding-left: 32px;
+        padding-right: 32px;
+      }
+ }
+
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  margin-left: -20px;
+
+  @media screen and (min-width: 768px) and (max-width: 1279){
+    flex-direction: row;
+    align-items: flex-start;
+    margin-left: -32px;
+  }
+
+  @media screen and (min-width: 1280px){
+    margin-left: -16px;
+  }
+
+  &__item {
+    margin-left: 20px;
+    margin-top: 20px;
+
+    @media screen and (min-width: 768px) and (max-width: 1279){
+      flex-basis: calc((100% - (2 * 32px)) / 2);
+      margin-left: 32px;
+      margin-top: 32px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      flex-basis: calc((100% - (3 * 16px)) / 3);
+      margin-left: 16px;
+      margin-top: 32px;
+    }
+  }
+}
+  .card-wrapper {
+          height: 402px;
+          margin-bottom: 10px;
+          border-radius: 5px;
+          overflow: hidden;
+          width: 100%;
+      
+          @media screen and (min-width: 768px) and (max-width: 1279) {
+            height: 455px;
+          }
+      
+          @include breakpoint(desktop) {
+            height: 574px;
+          }
+        }
+  .card__title {
+      text-transform: uppercase;
+      color: #000;;
+      font-size: 12px;
+      line-height: 1.17;
+      margin-bottom: 4px;  
+      @media screen and (min-width: 1280px) {
+        font-size: 20px;
+        line-height: 1.2;
+  }}
+  .card__text {
+    color:#B92F2C;;
+    font-size: 12px;
+    line-height: 1.17;
+    margin-bottom: 4px;  
+    @media screen and (min-width: 1280px) {
+      font-size: 20px;
+      line-height: 1.2;
+  }};
+ 
