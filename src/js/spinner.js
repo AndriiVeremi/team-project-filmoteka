@@ -13,4 +13,3 @@ export const renderSpinner = function (parentEl) {
   parentEl.insertAdjacentHTML('afterbegin', markup);
   console.log(markup);
 };
-console.log();
