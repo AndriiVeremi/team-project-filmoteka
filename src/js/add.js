@@ -1,6 +1,5 @@
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
-import * as popular from './popularMovies.js';
 
 
 import getRefs from './refs.js';
@@ -13,8 +12,6 @@ refs.gallery.addEventListener('click', clickOnMovie);
 
 async function clickOnMovie(event) {
     event.preventDefault();
-
-
 
     try {
 

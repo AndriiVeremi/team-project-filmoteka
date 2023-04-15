@@ -9,6 +9,6 @@ import './js/buttonUp.js';
 import './js/renderTeam.js';
 import './js/add.js'
 
-// import './js/localStorage.js';
-// import './js/openModal.js';
+import './js/localStorage.js';
+import './js/openModal.js';
 // import './js/spinner';
