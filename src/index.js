@@ -7,8 +7,9 @@ import './js/renderMarkup';
 import './js/pagination.js';
 import './js/buttonUp.js';
 import './js/renderTeam.js';
-import './js/add.js';
+import './js/renderModalFilms.js';
+import './js/modalFilms.js';
 
 import './js/localStorage.js';
-import './js/openModal.js';
+// import './js/openModal.js';
 // import './js/spinner';

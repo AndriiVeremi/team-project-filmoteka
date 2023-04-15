@@ -10,8 +10,9 @@ popularMovies();
 export async function popularMovies() {
   try {
     const data = await API.getMoveTrending();
-    console.log(data);
+    // console.log(data);
     const results = data.data.results;
+  
     const arrGenreId = results.map(item => item.genre_ids);
 
     const genreResponse = await API.getMoveGanres();
