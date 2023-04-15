@@ -1,3 +1,9 @@
+import getRefs from './refs.js';
+import ApiClient from './fetch-API.js';
+import { renderMarkup } from './renderMarkup.js';
+
+const API = new ApiClient();
+
 const refs = {
   queueBtn: document.querySelector('.queueBtn'),
   addToQueueBtn: document.querySelector('.addToQueueBtn'),
@@ -14,6 +20,31 @@ refs.addToQueueBtn.addEventListener('click', setQueue);
 refs.watchedBtn.addEventListener('click', showWatched);
 refs.queueBtn.addEventListener('click', showQueue);
 
+
+function showWatched() {
+  API.resetPage();
+  try {
+    localStorage.getItem(WATCHED_KEY) === null
+      ? undefined
+      : JSON.parse(localStorage.getItem(WATCHED_KEY));
+  } catch (error) {
+    console.error(message);
+  }
+  renderMarkup(results);
+}
+
+function showQueue() {
+  API.resetPage();
+  try {
+    localStorage.getItem(QUEUE_KEY) === null
+      ? undefined
+      : JSON.parse(localStorage.getItem(QUEUE_KEY));
+  } catch (error) {
+    console.error(message);
+  }
+  renderMarkup(results);
+}
+
 function setWatched(e) {
   formData[e.target.name] = e.target.value;
   localStorage.setItem(WATCHED_KEY, JSON.stringify(formData));
@@ -22,24 +53,4 @@ function setWatched(e) {
 function setQueue(e) {
   formData[e.target.name] = e.target.value;
   localStorage.setItem(QUEUE_KEY, JSON.stringify(formData));
-}
-
-function showWatched() {
-  try {
-    localStorage.getItem(WATCHED_KEY) === null
-      ? undefined
-      : JSON.parse(localStorage.getItem(WATCHED_KEY));
-  } catch (error) {
-    console.error(message);
-  }
-}
-
-function showQueue() {
-  try {
-    localStorage.getItem(QUEUE_KEY) === null
-      ? undefined
-      : JSON.parse(localStorage.getItem(QUEUE_KEY));
-  } catch (error) {
-    console.error(message);
-  }
 }
