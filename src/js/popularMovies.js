@@ -28,7 +28,7 @@ export async function popularMovies() {
 }
 
 // Функція для заміни id на його назву жанра
-function replaceIdtoGenre(arrGenre, arrGenreId) {
+export function replaceIdtoGenre(arrGenre, arrGenreId) {
   arrGenreId.forEach(item => {
     for (let i = 0; i < item.length; i += 1) {
       for (let j = 0; j < arrGenre.length; j += 1) {

@@ -5,16 +5,13 @@ const BASE_URL = 'https://api.themoviedb.org/3/';
 const API_KEY = '5257856f789bada50296aabdc3a8b8f3';
 
 class ApiClient {
-
-    constructor() {
-        this.page = 1;
-        this.searchQuery = '';
-    }
+    static page = 1
+    static searchQuery = ''
 
     // Запит на список найпопулярніших
     async getMoveTrending() {
         try {
-            const fetchLink = `${BASE_URL}/trending/movie/day?api_key=${API_KEY}&language=en-US&page=${this.page}`;
+            const fetchLink = `${BASE_URL}/trending/movie/day?api_key=${API_KEY}&language=en-US&page=${ApiClient.page}`;
             const response = await axios.get(fetchLink);
             return response;
         } catch (error) {
@@ -25,7 +22,7 @@ class ApiClient {
     // Запит за ключовим словом
     async getMoveName() {
         try {
-            const fetchLink = `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&page=${this.page}&query=${this.searchQuery}`;
+            const fetchLink = `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&page=${ApiClient.page}&query=${ApiClient.searchQuery}`;
             const response = await axios.get(fetchLink);
             return response;
         } catch (error) {
@@ -58,7 +55,7 @@ class ApiClient {
     // Запит на масив об'єктів жанрів
     async getMoveGanres() {
         try {
-            const fetchLink = `${BASE_URL}genre/movie/list?api_key=${API_KEY}&language=en-US&page=${this.page}`;
+            const fetchLink = `${BASE_URL}genre/movie/list?api_key=${API_KEY}&language=en-US&page=${ApiClient.page}`;
             const response = await axios.get(fetchLink);
             return response;
         } catch (error) {
@@ -66,25 +63,34 @@ class ApiClient {
         }
     }
 
-   
     set query(newQuery) {
-        this.searchQuery = newQuery;
+        ApiClient.page = 1;
+        ApiClient.searchQuery = newQuery;
     }
 
     get query() {
-        return this.searchQuery;
+        return ApiClient.searchQuery;
+    }
+
+    set page(page) {
+
+        ApiClient.page = page;
+    }
+
+    get page() {
+        return ApiClient.page;
     }
 
     incrementPage() {
-        this.page += 1;
+        ApiClient.page += 1;
     }
 
     decrementPage() {
-        this.page -= 1;
+        ApiClient.page -= 1;
     }
 
     resetPage() {
-        this.page = 1;
+        ApiClient.page = 1;
     }
 
 }
