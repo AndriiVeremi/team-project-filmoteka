@@ -1,6 +1,7 @@
-import * as basicLightbox from 'basiclightbox';
-import 'basiclightbox/dist/basicLightbox.min.css';
 
+
+import * as popular from './popularMovies.js';
+import * as render from './renderMarkup.js';
 
 import getRefs from './refs.js';
 import APIservice from './fetch-API.js';
@@ -10,23 +11,34 @@ const API = new APIservice();
 
 refs.gallery.addEventListener('click', clickOnMovie);
 
-async function clickOnMovie(event) {
-    event.preventDefault();
 
-    try {
+async function clickOnMovie(e) {
+  e.preventDefault();
+  try {
+    // if (e.target.nodeName === 'LI') {
+    //   const idMovie = e.target.id;
+    //   const response = await API.getMoveInfo(moveId);
+    //   console.log(idMovie);
 
-        let moveId = event.target.dataset.id;
-        // let id = data.data.results.id
+    //   // createMarkupMovieCardInModal(response);
+    // }
 
-        console.log(moveId)
+    if (
+      e.target.nodeName === 'DIV' ||
+      e.target.nodeName === 'IMG' ||
+      e.target.nodeName === 'H2' ||
+      e.target.nodeName === 'P'
+    ) {
+      console.log(e.target.nodeName);
+      const moveId = e.target.dataset.id;
 
+      // let id = data.data.results.id
 
-        const response = await API.getMoveInfo(948713);
-        console.log(response)
+      console.log(moveId);
 
-    } catch (error) {
-        console.log('message')
+      const response = await API.getMoveInfo(moveId);
     }
-
+  } catch (error) {
+    console.log('message');
+  }
 }
-

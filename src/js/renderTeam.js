@@ -1,16 +1,16 @@
-import * as basicLightbox from 'basiclightbox';
-import 'basiclightbox/dist/basicLightbox.min.css';
+// import * as basicLightbox from 'basiclightbox';
+// import 'basiclightbox/dist/basicLightbox.min.css';
 
 import getRefs from './refs.js';
 
-import photoAndrii from "../images/team/andrii.png";
-import photoAlla from "../images/team/alla.png";
-import photoIvan from "../images/team/Ivan.png";
-import photoIryna from "../images/team/iryna.png";
-import photoOleksandra from "../images/team/oleksandra.png";
-import photoJaroslav from "../images/team/jaroslav.png";
-import photoOlia from "../images/team/olia.png";
-import photoKonstantyn from "../images/team/konstantyn.png";
+import photoAndrii from '../images/team/andrii.png';
+import photoAlla from '../images/team/alla.png';
+import photoIvan from '../images/team/Ivan.png';
+import photoIryna from '../images/team/iryna.png';
+import photoOleksandra from '../images/team/oleksandra.png';
+import photoJaroslav from '../images/team/jaroslav.png';
+import photoOlia from '../images/team/olia.png';
+import photoKonstantyn from '../images/team/konstantyn.png';
 import spriteUrl from '../images/btnUp.png';
 
 const refs = getRefs();
@@ -93,32 +93,14 @@ refs.projectTeam.addEventListener('click', openModal);
 const modal = basicLightbox.create(markup);
 
 function openModal(e) {
-    modal.show();
+  modal.show();
 
-    window.addEventListener('keydown', closeModalHandler);
+  window.addEventListener('keydown', closeModalHandler);
 
-    function closeModalHandler(e) {
-        if (e.code === 'Escape') {
-            modal.close();
-            window.removeEventListener('keydown', closeModalHandler);
-        }
+  function closeModalHandler(e) {
+    if (e.code === 'Escape') {
+      modal.close();
+      window.removeEventListener('keydown', closeModalHandler);
     }
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
