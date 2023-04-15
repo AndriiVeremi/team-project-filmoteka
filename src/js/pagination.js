@@ -3,6 +3,7 @@ import 'tui-pagination/dist/tui-pagination.min.css';
 
 import getRefs from './refs.js';
 import { API, popularMovies } from './popularMovies';
+import { fetchMoviesSearchQuery } from './searchFilms.js';
 
 const refs = getRefs();
 
@@ -15,7 +16,16 @@ const instance = new Pagination('tui-pagination-container', {
 
 // instance.setTotalItems(100);
 instance.on('beforeMove', event => {
-  refs.gallery.replaceChildren();
   API.page = event.page;
-  popularMovies();
+  if (!API.query.trim()) {
+    refs.gallery.replaceChildren();
+    popularMovies();
+  } else {
+    fetchMoviesSearchQuery();
+  }
+});
+
+const searchForm = document.querySelector('.search-form');
+searchForm.addEventListener('submit', () => {
+  instance.reset();
 });
