@@ -1,4 +1,4 @@
-// import * as basicLightbox from 'basiclightbox';
+
 
 import * as popular from './popularMovies.js';
 import * as render from './renderMarkup.js';
@@ -10,6 +10,7 @@ const refs = getRefs();
 const API = new APIservice();
 
 refs.gallery.addEventListener('click', clickOnMovie);
+
 
 async function clickOnMovie(e) {
   e.preventDefault();
