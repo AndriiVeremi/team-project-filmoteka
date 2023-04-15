@@ -1,6 +1,6 @@
 export default function getRefs() {
     const refs = {
-        gallery: document.querySelector('.gallery'),
+        gallery: document.querySelector('.js-gallery'),
         goTopBtn: document.querySelector('.go-top'),
 
         projectTeam: document.querySelector('.js-team'),

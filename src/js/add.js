@@ -1,9 +1,5 @@
-
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
-
-
-
 
 import getRefs from './refs.js';
 import APIservice from './fetch-API.js';
@@ -11,10 +7,7 @@ import APIservice from './fetch-API.js';
 const refs = getRefs();
 const API = new APIservice();
 
-
-const cardFilm = document.querySelector('.js-gallery');
-cardFilm.addEventListener('click', clickOnMovie);
-
+refs.gallery.addEventListener('click', clickOnMovie);
 
 async function clickOnMovie(event) {
     event.preventDefault();
