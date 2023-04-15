@@ -10,7 +10,7 @@ import { renderModalFilms } from './renderModalFilms.js';
 const refs = getRefs();
 const API = new APIservice();
 
-// refs.gallery.addEventListener('click', clickOnMove);
+refs.gallery.addEventListener('click', clickOnMove);
 
 
 export async function clickOnMove(event) {
