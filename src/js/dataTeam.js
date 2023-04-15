@@ -1,7 +1,7 @@
-import photoAndrii from "../images/team/andrii.png";
-import photoAlla from "../images/team/alla.png";
-import photoIvan from "../images/team/ivan.png";
-import photoIryna from "../images/team/iryna.png";
+// import photoAndrii from "../images/team/andrii.png";
+// import photoAlla from "../images/team/alla.png";
+// import photoIvan from "../images/team/ivan.png";
+// import photoIryna from "../images/team/iryna.png";
 
 
 
