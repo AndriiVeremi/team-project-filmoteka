@@ -3,7 +3,7 @@ import APIservice from './fetch-API.js';
 import { renderMarkup } from './renderMarkup.js';
 
 const refs = getRefs();
-const API = new APIservice();
+export const API = new APIservice();
 
 popularMovies();
 
