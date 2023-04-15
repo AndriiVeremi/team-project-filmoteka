@@ -13,6 +13,7 @@ export default function getRefs() {
         // btnCloseModal: document.querySelector(''),
         // btnOpenModal: document.querySelectorAll(''),
 
+        
 
     };
     return refs;
