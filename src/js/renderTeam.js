@@ -35,7 +35,7 @@ const markup = `<div class="team-wrapper"><div class="team-card">
     <img src="${photoIvan}" alt="Ivan" class="team-image">
     <p class="team-name">Ivan</p>
     <p class="team-role">Developer</p>
-    <a href="https://github.com/" target="_blank" class="team-git">
+    <a href="https://github.com/IvanSkidan" target="_blank" class="team-git">
     <svg class="logo-icon" width="24" height="24">
       <use href="${spriteUrl}#github"></use>
     </svg></a>
@@ -44,7 +44,7 @@ const markup = `<div class="team-wrapper"><div class="team-card">
     <img src="${photoIryna}" alt="Iryna" class="team-image">
     <p class="team-name">Iryna</p>
     <p class="team-role">Developer</p>
-    <a href="https://github.com/" target="_blank" class="team-git">
+    <a href="https://github.com/IrynaKyslytsia" target="_blank" class="team-git">
     <svg class="logo-icon" width="24" height="24">
       <use href="${spriteUrl}#github"></use>
     </svg></a>
@@ -62,7 +62,7 @@ const markup = `<div class="team-wrapper"><div class="team-card">
     <img src="${photoJaroslav}" alt="Jaroslav" class="team-image">
     <p class="team-name">Jaroslav</p>
     <p class="team-role">Developer</p>
-    <a href="https://github.com/" target="_blank" class="team-git">
+    <a href="https://github.com/Y-Savushchyk" target="_blank" class="team-git">
     <svg class="logo-icon" width="24" height="24">
       <use href="${spriteUrl}#github"></use>
     </svg></a>
@@ -71,7 +71,7 @@ const markup = `<div class="team-wrapper"><div class="team-card">
     <img src="${photoOlia}" alt="Olia" class="team-image">
     <p class="team-name">Olia</p>
     <p class="team-role">Developer</p>
-    <a href="https://github.com/" target="_blank" class="team-git">
+    <a href="https://github.com/mrs-ktulhu" target="_blank" class="team-git">
     <svg class="logo-icon" width="24" height="24">
       <use href="${spriteUrl}#github"></use>
     </svg></a>
@@ -80,7 +80,7 @@ const markup = `<div class="team-wrapper"><div class="team-card">
     <img src="${photoKonstantyn}" alt="Konstantyn" class="team-image">
     <p class="team-name">Konstantyn</p>
     <p class="team-role">Developer</p>
-    <a href="https://github.com/" target="_blank" class="team-git">
+    <a href="https://github.com/const604" target="_blank" class="team-git">
     <svg class="logo-icon" width="24" height="24">
       <use href="${spriteUrl}#github"></use>
     </svg></a>
