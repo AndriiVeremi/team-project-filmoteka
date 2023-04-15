@@ -19,10 +19,10 @@ export function renderTeam(dataTeam) {
         </div>`;
     }).join("");
 
-    refs.gallery.insertAdjacentHTML("beforeend", team);  
+    // refs.gallery.insertAdjacentHTML("beforeend", team);  
 }
 
-console.log(renderTeam(dataTeam))
+// console.log(renderTeam(dataTeam))
 
 
 
