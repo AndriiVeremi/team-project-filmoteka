@@ -3,7 +3,7 @@ import getRefs from './refs.js';
 
 import photoAndrii from "../images/team/andrii.png";
 import photoAlla from "../images/team/alla.png";
-import photoIvan from "../images/team/ivan.png";
+import photoIvan from "../images/team/Ivan.png";
 import photoIryna from "../images/team/iryna.png";
 import photoOleksandra from "../images/team/oleksandra.png";
 import photoJaroslav from "../images/team/jaroslav.png";
