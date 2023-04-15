@@ -1,19 +1,23 @@
 .header {
     min-width: 320px;
-    // height: 100vh;
+    background-color: #F0F0F0;
 }
 
 .header .container {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 
     @media screen and (min-width: 768px) {
-        margin-top: 32px;
-        margin-bottom: 32px;
+        padding-top: 32px;
+        padding-bottom: 32px;
     }
 }
 
 .header-wrap { 
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 460px;
     padding: 14px 14px 20px 14px;
     border-radius: 15px;
 
@@ -87,12 +91,21 @@ background-image:
 }
 
 .library-nav {
-    display: none;
     justify-content: center;
     margin-top: 16px;
+
+    @media screen and (min-width: 768px) {
+        position: absolute;
+        top: 0;
+        right: 16px;
+    }
+
+    @media screen and (min-width: 1200px) {
+        right: 32px;
+    }
 }
 
-.nav-link {
+.nav-btn {
     display: inline-flex;
     align-items: center;
     height: 34px;
@@ -102,6 +115,9 @@ background-image:
     font-weight: 500;
     font-size: 12px;
     line-height: 1.17;
+
+    transition: color $duration $cubic,
+                background-color $duration $cubic;
 
     @media screen and (min-width: 768px) {
         padding: 12px 24px;
@@ -114,10 +130,21 @@ background-image:
     }
 }
 
-.home-nav .nav-link:hover,
-.home-nav .nav-link:focus,
-.home-nav .nav-link:active {
+.home-nav .nav-btn:hover,
+.home-nav .nav-btn:focus,
+.home-nav .nav-btn:active {
     background-color: $main-text;
+    color: #fff;
+}
+
+.library-nav .nav-btn {
+    color: $accent-text;
+}
+
+.library-nav .nav-btn:hover,
+.library-nav .nav-btn:focus,
+.library-nav .nav-btn:active {
+    background-color: $accent-text;
     color: #fff;
 }
 
@@ -143,8 +170,6 @@ background-image:
 
     font-size: 12px;
     line-height: 1.17;
-
-    margin-bottom: 312px;
 
     @media screen and (min-width: 768px) {
         margin-bottom: 105px;
@@ -184,6 +209,7 @@ background-image:
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: auto;
 
     @media screen and (min-width: 768px) {
         justify-content: flex-start;
