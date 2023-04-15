@@ -15,5 +15,5 @@ import './js/renderTeam.js';
 
 
 // import './js/localStorage.js';
-import './js/openModal.js';
+// import './js/openModal.js';
 // import './js/spinner';

@@ -1,4 +1,5 @@
-
+import * as basicLightbox from 'basiclightbox';
+import getRefs from './refs.js';
 
 import photoAndrii from "../images/team/andrii.png";
 import photoAlla from "../images/team/alla.png";
@@ -8,15 +9,15 @@ import photoOleksandra from "../images/team/oleksandra.png";
 import photoJaroslav from "../images/team/jaroslav.png";
 import photoOlia from "../images/team/olia.png";
 import photoKonstantyn from "../images/team/konstantyn.png";
+import spriteUrl from '../images/btnUp.png';
 
-// import spriteUrl from '../images/sprite.svg';
-
+const refs = getRefs();
 
 const markup = `<div class="team-wrapper"><div class="team-card">
     <img src="${photoAndrii}" alt="Andrii" class="team-image">
     <p class="team-name">Andrii</p>
     <p class="team-role">Team Lead</p>
-    <a href="https://github.com/AndriiVeremii" target="_blank" class="team-git">
+    <a href="https://github.com/AndriiVeremi" target="_blank" class="team-git">
     <svg class="logo-icon" width="24" height="24">
       <use href="${spriteUrl}#github"></use>
     </svg></a>
@@ -25,7 +26,7 @@ const markup = `<div class="team-wrapper"><div class="team-card">
     <img src="${photoAlla}" alt="Alla" class="team-image">
     <p class="team-name">Alla</p>
     <p class="team-role">Scrum Master</p>
-    <a href="https://github.com/" target="_blank" class="team-git">
+    <a href="https://github.com/ZubkoA" target="_blank" class="team-git">
     <svg class="logo-icon" width="24" height="24">
       <use href="${spriteUrl}#github"></use>
     </svg></a>
@@ -52,7 +53,7 @@ const markup = `<div class="team-wrapper"><div class="team-card">
     <img src="${photoOleksandra}" alt="Oleksandra" class="team-image">
     <p class="team-name">Oleksandra</p>
     <p class="team-role">Developer</p>
-    <a href="https://github.com/" target="_blank" class="team-git">
+    <a href="https://github.com/OleksandraParkhomenko" target="_blank" class="team-git">
     <svg class="logo-icon" width="24" height="24">
       <use href="${spriteUrl}#github"></use>
     </svg></a>
@@ -80,15 +81,12 @@ const markup = `<div class="team-wrapper"><div class="team-card">
     <p class="team-name">Konstantyn</p>
     <p class="team-role">Developer</p>
     <a href="https://github.com/" target="_blank" class="team-git">
-    <svg class="logo__icon" width="24" height="24">
+    <svg class="logo-icon" width="24" height="24">
       <use href="${spriteUrl}#github"></use>
     </svg></a>
 </div></div>`;
 
-const container = document.querySelector('.js-team-modal');
-
-
-container.addEventListener('click', openModal);
+refs.projectTeam.addEventListener('click', openModal);
 
 const modal = basicLightbox.create(markup);
 
@@ -104,12 +102,6 @@ function openModal(e) {
         }
     }
 }
-
-
-
-
-
-
 
 
 

@@ -3,7 +3,7 @@ export default function getRefs() {
         gallery: document.querySelector('.gallery'),
         goTopBtn: document.querySelector('.go-top'),
 
-        projectTeam: document.querySelector('#teamStudents'),
+        projectTeam: document.querySelector('.js-team'),
 
         queueBtn: document.querySelector('button[data-page="queue"]'),
         addToQueueBtn: document.querySelector('button[data-action="add-to-queue"]'),
