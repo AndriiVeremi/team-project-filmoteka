@@ -1,11 +1,7 @@
 import { dataTeam } from './dataTeam.js';
-// import  foto  from 'url:../../src/images/team/andrii.png'
-// console.log(foto)
 import getRefs from './refs.js';
 
 const refs = getRefs();
-
-console.log(refs.queueBtn)
 
 export function renderTeam(dataTeam) {   
     const team = dataTeam.map(({ imgUrl, name, role, gitUrl, gitImg, }) => {
