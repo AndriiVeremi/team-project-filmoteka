@@ -7,8 +7,6 @@ import './js/renderMarkup';
 import './js/pagination.js';
 import './js/buttonUp.js';
 import './js/renderTeam.js';
-import './js/dataTeam.js';
-import './js/openModal.js';
 
 // import './js/localStorage.js';
 // import './js/openModal.js';
