@@ -1,48 +1,53 @@
 <header class="header">
-    <div class="container">
-           <div class="header-wrap">
-            <div class="nav-wrap">
-                <ul class="home-nav">
-                    <li class="nav-item">
-                        <button type="button" class="nav-btn" data-page="home">HOME</button>
-                    </li>
-                    <li class="nav-item">
-                        <button type="button" class="nav-btn" data-page="library">MY LIBRARY</button>
-                    </li>
-                </ul>
-    
-                <form class="search-form visually-hidden">
-                    <input class="form-input"
-                    type="text" 
-                    name="searchQuery" 
-                    autocomplete="off"
-                    placeholder="Movie search"
-                    />
-                    <button type="button">
-                        <svg class="icon-search" width="14" height="14">
-                            <use href="./images/icons.svg#icon-search"></use>
-                        </svg>
-                    </button>
-                </form>
-            </div>
+  <div class="container">
+    <div class="header-wrap">
+      <div class="nav-wrap">
+        <ul class="home-nav">
+          <li class="nav-item">
+            <button type="button" class="nav-btn" data-page="home">HOME</button>
+          </li>
+          <li class="nav-item">
+            <button type="button" class="nav-btn" data-page="library">
+              MY LIBRARY
+            </button>
+          </li>
+        </ul>
 
-            <div class="logo">
-                <a href="#">
-                    <svg class="logo-icon" width="32" height="32">
-                        <use href="./images/icons.svg#icon-film"></use>
-                    </svg>
-                    <span class="logo-name">Filmoteka</span>
-                </a>
-            </div>
+        <form class="search-form">
+          <input
+            class="form-input"
+            type="text"
+            name="searchQuery"
+            autocomplete="off"
+            placeholder="Movie search"
+          />
+          <button type="button">
+            <svg class="icon-search" width="14" height="14">
+              <use href="./images/icons.svg#icon-search"></use>
+            </svg>
+          </button>
+        </form>
+      </div>
 
-            <ul class="library-nav">
-                <li class="nav-item">
-                    <button type="button" class="nav-btn" data-page="watched">WATCHED</button>
-                </li>
-                <li class="nav-item">
-                    <button type="button" class="nav-btn" data-page="queue">QUEUE</button>
-                </li>
-            </ul>        
-           </div>
+      <div class="logo">
+        <a href="#">
+          <svg class="logo-icon" width="32" height="32">
+            <use href="./images/icons.svg#icon-film"></use>
+          </svg>
+          <span class="logo-name">Filmoteka</span>
+        </a>
+      </div>
+
+      <ul class="library-nav">
+        <li class="nav-item">
+          <button type="button" class="nav-btn" data-page="watched">
+            WATCHED
+          </button>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="nav-btn" data-page="queue">QUEUE</button>
+        </li>
+      </ul>
     </div>
+  </div>
 </header>
