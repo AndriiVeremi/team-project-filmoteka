@@ -1,52 +1,54 @@
 import getRefs from './refs.js';
-import ApiClient from './fetch-API.js';
+import APIservice from './fetch-API.js';
 import { renderMarkup } from './renderMarkup.js';
+import { popularMovies } from './popularMovies.js';
 
-const API = new ApiClient();
+const API = new APIservice();
 
-const refs = {
-  queueBtn: document.querySelector('.queueBtn'),
-  addToQueueBtn: document.querySelector('.addToQueueBtn'),
-  watchedBtn: document.querySelector('.watchedBtn'),
-  addToWatchedBtn: document.querySelector('.addToWatchedBtn'),
-};
+const refs = getRefs();
 
-const formData = {};
+// const formData = {};
 const QUEUE_KEY = 'queue';
 const WATCHED_KEY = 'watched';
 
-refs.addToWatchedBtn.addEventListener('click', setWatched);
-refs.addToQueueBtn.addEventListener('click', setQueue);
+// refs.addToWatchedBtn.addEventListener('click', setWatched);
+// refs.addToQueueBtn.addEventListener('click', setQueue);
 refs.watchedBtn.addEventListener('click', showWatched);
 refs.queueBtn.addEventListener('click', showQueue);
 
+console.log(refs.gallery);
 
-function showWatched() {
-  API.resetPage();
+async function showWatched() {
+  const data = await API.getMoveTrending();
+  console.log(data);
+  console.log(data.data.results[4].id);
+  // API.resetPage();
   try {
     localStorage.getItem(WATCHED_KEY) === null
-      ? undefined
+      ? (refs.gallery.innerHTML = '')
       : JSON.parse(localStorage.getItem(WATCHED_KEY));
   } catch (error) {
     console.error(message);
   }
-  renderMarkup(results);
+  // const resp = API.getMoveTrending();
+  // console.log(resp.data.results);
+  // popularMovies();
+  renderMarkup(data.data.results);
 }
 
 function showQueue() {
-  API.resetPage();
   try {
     localStorage.getItem(QUEUE_KEY) === null
-      ? undefined
+      ? (refs.gallery.innerHTML = '')
       : JSON.parse(localStorage.getItem(QUEUE_KEY));
   } catch (error) {
     console.error(message);
   }
-  renderMarkup(results);
+  // renderMarkup();
 }
 
-function setWatched(e) {
-  formData[e.target.name] = e.target.value;
+function setWatched() {
+  const wotchedId = API.getMoveInfo(moveId);
   localStorage.setItem(WATCHED_KEY, JSON.stringify(formData));
 }
 
