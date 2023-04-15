@@ -5,13 +5,8 @@ import getRefs from './refs.js';
 import APIservice from './fetch-API.js';
 import { renderModalFilms } from './renderModalFilms.js';
 
-
-
 const refs = getRefs();
 const API = new APIservice();
-
-
-
 
 export async function clickOnMove(event) {
     event.preventDefault();
@@ -20,8 +15,9 @@ export async function clickOnMove(event) {
     
     console.log(moveId);
     try {
-        const dataInfo = await API.getMoveInfo(moveId)
-        console.log(dataInfo)
+        
+        const response = await API.getMoveInfo(moveId)
+        console.log(response)
        
     } catch (error) {
         console.log(error);
