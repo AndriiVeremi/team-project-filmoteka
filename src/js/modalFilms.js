@@ -25,6 +25,7 @@ async function clickMove(event) {
       const queueAdd = document.querySelector(`[data-add="queue"]`);
       wathcedAdd.addEventListener('click', addToWatched);
       queueAdd.addEventListener('click', addToQueue);
+      // window.addEventListener('keydown', event => closeModalEscape(event));
     }
 
   } catch (error) {
@@ -123,6 +124,22 @@ function renderModalFilms({
 </div>`;
   const instance = basicLightbox.create(markup);
   instance.show();
+
+  window.addEventListener('keydown', event => closeModalEscape(event));
+
+  function closeModal() {
+    // refs.body.classList.remove('no-scroll');
+    instance.close();
+    document.removeEventListener('keydown', event => closeModalEscape(event));
+  }
+
+  function closeModalEscape(event) {
+    if (event.key !== 'Escape') {
+      return;
+    }
+    instance.close();
+    closeModal();
+  }
 }
 
 export function addToWatched(event) {
@@ -158,7 +175,6 @@ export function addToQueue(event) {
     Notiflix.Report.success('Film added to QUEUE');
     localStorage.setItem('QueueFilms', JSON.stringify(parsedQueueFilms));
   }
-
 }
 
 
