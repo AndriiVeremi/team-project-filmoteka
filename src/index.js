@@ -1,3 +1,4 @@
+import './js/modal.js';
 import './js/refs.js';
 import './js/fetch-API.js';
 import './js/searchFilms';
@@ -13,3 +14,5 @@ import './js/modalFilms.js';
 import './js/localStorage.js';
 // import './js/openModal.js';
 // import './js/spinner';
+
+
