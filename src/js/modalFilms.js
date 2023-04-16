@@ -127,17 +127,16 @@ function renderModalFilms({
   refs.body.classList.add('no-scroll');
   window.addEventListener('keydown', event => closeModalEscape(event));
 
-  function closeModal() {
+  function closeModal(event) {
     refs.body.classList.remove('no-scroll');
-    instance.close();
-    document.removeEventListener('keydown', event => closeModalEscape(event));
+    instance.close(() => refs.body.classList.remove('no-scroll'));
+    window.removeEventListener('keydown', event => closeModalEscape(event));
   }
 
   function closeModalEscape(event) {
     if (event.key !== 'Escape') {
       return;
     }
-    instance.close();
     closeModal();
   }
 }
