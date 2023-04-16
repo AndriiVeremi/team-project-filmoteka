@@ -118,7 +118,7 @@ function renderModalFilms({
   instance.show();
 }
 
-function addToWatched(event) {
+export function addToWatched(event) {
  
   const filmIdToLS = document.querySelector(`[data-add="wathced"]`).dataset.id;
 
@@ -139,7 +139,7 @@ function addToWatched(event) {
 }
 
 
-function addToQueue() {
+export function addToQueue() {
   const filmIdToLS = document.querySelector(`[data-add="queue"]`).dataset.id;
 
   const parsedQueueFilms = JSON.parse(localStorage.getItem('QueueFilms'));
