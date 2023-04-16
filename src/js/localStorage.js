@@ -1,29 +1,18 @@
 import getRefs from './refs.js';
-import ApiClient from './fetch-API.js';
+import APIservice from './fetch-API.js';
 import { renderMarkup } from './renderMarkup.js';
-import { popularMovies } from './popularMovies.js';
 
-const API = new ApiClient();
+const API = new APIservice();
 
 const refs = getRefs();
 
-// const formData = {};
-const QUEUE_KEY = 'queue';
-const WATCHED_KEY = 'watched';
-
+const QUEUE_KEY = 'QueueFilms';
+const WATCHED_KEY = 'WatchedFilms';
 
 refs.watchedBtn.addEventListener('click', showWatched);
 refs.queueBtn.addEventListener('click', showQueue);
 
-// console.log(refs.gallery);
-
 async function showWatched() {
-  const data = await API.getMoveTrending();
-  console.log(data);
-  console.log(data.data.results[4].id);
-  // formData = data.data.results[4];
-  localStorage.setItem(QUEUE_KEY, JSON.stringify(data));
-  // API.resetPage();
   try {
     localStorage.getItem(WATCHED_KEY) === null
       ? (refs.gallery.innerHTML = '')
@@ -31,13 +20,26 @@ async function showWatched() {
   } catch (error) {
     console.error(message);
   }
-  // const resp = API.getMoveTrending();
-  // console.log(resp.data.results);
-  // popularMovies();
-  // renderMarkup(data.data.results);
+  const filmIdToLS = JSON.parse(localStorage.getItem(WATCHED_KEY));
+  console.log(filmIdToLS);
+
+  try {
+    const response = await API.getMoveTrending();
+    refs.gallery.innerHTML = '';
+    console.log(response.data.results);
+    const results = response.data.results;
+    for (const id of filmIdToLS) {
+      console.log(id);
+      const moveId = results.filter(item => item.id == id);
+      console.log(moveId);
+      renderMarkup(moveId);
+    }
+  } catch (error) {
+    console.log(error);
+  }
 }
 
-function showQueue() {
+async function showQueue() {
   try {
     localStorage.getItem(QUEUE_KEY) === null
       ? (refs.gallery.innerHTML = '')
@@ -45,19 +47,21 @@ function showQueue() {
   } catch (error) {
     console.error(message);
   }
-  // console.log(JSON.parse(localStorage.getItem(QUEUE_KEY)));
-  const data = JSON.parse(localStorage.getItem(QUEUE_KEY));
-  const results = data.data;
-  console.log(results);
-  renderMarkup(results);
-}
+  const filmIdToLS = JSON.parse(localStorage.getItem(QUEUE_KEY));
+  console.log(filmIdToLS);
 
-function setWatched() {
-  const wotchedId = API.getMoveInfo(moveId);
-  localStorage.setItem(WATCHED_KEY, JSON.stringify(formData));
-}
-
-function setQueue(e) {
-  // formData[e.target.name] = e.target.value;
-  localStorage.setItem(QUEUE_KEY, JSON.stringify(formData));
+  try {
+    const response = await API.getMoveTrending();
+    refs.gallery.innerHTML = '';
+    console.log(response.data.results);
+    const results = response.data.results;
+    for (const id of filmIdToLS) {
+      console.log(id);
+      const moveId = results.filter(item => item.id == id);
+      console.log(moveId);
+      renderMarkup(moveId);
+    }
+  } catch (error) {
+    console.log(error);
+  }
 }
