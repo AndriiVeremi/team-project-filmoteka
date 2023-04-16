@@ -116,9 +116,7 @@ function renderModalFilms({
   </div>
 </div>
 </div>`;
-  
   const instance = basicLightbox.create(markup);
-
   instance.show();
 }
 
