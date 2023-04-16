@@ -4,27 +4,26 @@ import 'basiclightbox/dist/basicLightbox.min.css';
 import getRefs from './refs.js';
 import APIservice from './fetch-API.js';
 
-
 const refs = getRefs();
 const API = new APIservice();
 
 async function clickMove(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    const moveId = event.target.closest('li').dataset.id;
-    console.log(moveId)
-        
-    try {      
-        const response = await API.getMoveInfo(moveId)
-        console.log(response)
-      const data = response.data ;  
-        
-        console.log(data)
+  const moveId = event.target.closest('li').dataset.id;
+  console.log(moveId);
 
-        renderModalFilms(data)
-    } catch (error) {
-        console.log(error);
-    }   
+  try {
+    const response = await API.getMoveInfo(moveId);
+    console.log(response);
+    const data = response.data;
+
+    console.log(data);
+
+    renderModalFilms(data);
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 refs.gallery.addEventListener('click', clickMove);
@@ -40,11 +39,11 @@ function renderModalFilms({
   popularity,
   id,
 }) {
-
   const checkImg = url =>
-    `${!url
-      ? `https://img.freepik.com/premium-vector/video-production-logo-fun-modern-black_434503-786.jpg?w=1060`
-      : `https://image.tmdb.org/t/p/w500${url}`
+    `${
+      !url
+        ? `https://img.freepik.com/premium-vector/video-production-logo-fun-modern-black_434503-786.jpg?w=1060`
+        : `https://image.tmdb.org/t/p/w500${url}`
     }`;
 
   const movieGenres = genres.map(({ name }) => name).join(', ');
@@ -119,5 +118,3 @@ function renderModalFilms({
   const instance = basicLightbox.create(markup);
   instance.show();
 }
-
-
