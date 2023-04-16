@@ -40,6 +40,13 @@ function renderModalFilms({
   popularity,
   id,
 }) {
+
+  const checkImg = url =>
+    `${!url
+      ? `https://img.freepik.com/premium-vector/video-production-logo-fun-modern-black_434503-786.jpg?w=1060`
+      : `https://image.tmdb.org/t/p/w500${url}`
+    }`;
+
   const movieGenres = genres.map(({ name }) => name).join(', ');
   const markup = `<div class="modal-movie" id="modal_movie">
   <div class="movie-card">
@@ -47,7 +54,7 @@ function renderModalFilms({
     <div class="movie-card_img-cover">
       <img
       class="movie-card_photo"
-      src="${poster_path}"
+      src="${checkImg(poster_path)}"
       alt="${title}"
     />
       <button type="button" class="button-open-trailer"></button>
