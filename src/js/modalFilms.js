@@ -11,26 +11,22 @@ const API = new APIservice();
 async function clickMove(event) {
     event.preventDefault();
 
-    const moveId = event.target.dataset.id;
+
+    const moveId = event.target.closest('li').dataset.id;
+    console.log(moveId)
         
     try {      
         const response = await API.getMoveInfo(moveId)
+        console.log(response)
         const hits = response.data;  
         
         console.log(hits)
-        
-        renderModalFilms(hits)
+
+        // renderModalFilms(hits)
     } catch (error) {
         console.log(error);
     }   
 }
 
 refs.gallery.addEventListener('click', clickMove);
-
-
-
-
-
-
-
 
