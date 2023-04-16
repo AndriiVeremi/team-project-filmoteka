@@ -6,18 +6,12 @@ export default function getRefs() {
         projectTeam: document.querySelector('.js-team'),
         modal: document.querySelector('.js-overlay-modal'),
 
-        queueBtn: document.querySelector('button[data-page="queue"]'),
-        addToQueueBtn: document.querySelector('[data-add="queue"]'),
+        queueBtn: document.querySelector('button[data-page="queue"]'),        
         watchedBtn: document.querySelector('button[data-page="watched"]'),
+
+        addToQueueBtn: document.querySelector('[data-add="queue"]'),
         addToWatchedBtn: document.querySelector('[data-add="wathced"]'),
-        
-        // modalWindow: document.querySelector(''),
-        // overlay: document.querySelector('.overlay'),
-        // btnCloseModal: document.querySelector(''),
-        // btnOpenModal: document.querySelectorAll(''),
-
-
-
+       
     };
     return refs;
 };

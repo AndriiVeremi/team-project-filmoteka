@@ -11,12 +11,11 @@ const refs = getRefs();
 const QUEUE_KEY = 'queue';
 const WATCHED_KEY = 'watched';
 
-refs.addToWatchedBtn.addEventListener('click', setWatched);
-refs.addToQueueBtn.addEventListener('click', setQueue);
+
 refs.watchedBtn.addEventListener('click', showWatched);
 refs.queueBtn.addEventListener('click', showQueue);
 
-console.log(refs.gallery);
+// console.log(refs.gallery);
 
 async function showWatched() {
   const data = await API.getMoveTrending();

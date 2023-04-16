@@ -8,21 +8,28 @@ const refs = getRefs();
 const API = new APIservice();
 
 async function clickMove(event) {
-    event.preventDefault();
-    const moveId = event.target.closest('li').dataset.id;   
+  event.preventDefault();
+  const moveId = event.target.closest('li').dataset.id;
   try {
-      const response = await API.getMoveInfo(moveId)
-      const data = response.data;
-    renderModalFilms(data);   
-    
-      document.querySelector(`[data-add="wathced"]`);
-      document.addEventListener('click', addToWatched);
-      document.querySelector(`[data-add="queue"]`);
-      document.addEventListener('click', addToQueue);
+    const response = await API.getMoveInfo(moveId)
+    const data = response.data;
+    renderModalFilms(data);
 
-    } catch (error) {
-        console.log(error);
-    }   
+    if (
+      event.target.nodeName === 'DIV' ||
+      event.target.nodeName === 'IMG' ||
+      event.target.nodeName === 'H2' ||
+      event.target.nodeName === 'P'
+    ) {
+      const wathcedAdd = document.querySelector(`[data-add="wathced"]`);
+      const queueAdd = document.querySelector(`[data-add="queue"]`);
+      wathcedAdd.addEventListener('click', addToWatched);
+      queueAdd.addEventListener('click', addToQueue);
+    }
+
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 refs.gallery.addEventListener('click', clickMove);
@@ -118,8 +125,13 @@ function renderModalFilms({
   instance.show();
 }
 
+
+
+console.log(refs.gallery);
+
+
 export function addToWatched(event) {
- 
+
   const filmIdToLS = document.querySelector(`[data-add="wathced"]`).dataset.id;
 
   const parsedWathcedFilms = JSON.parse(localStorage.getItem('WatchedFilms'));
@@ -129,13 +141,13 @@ export function addToWatched(event) {
   }
 
   if (parsedWathcedFilms.includes(filmIdToLS)) {
-    Notiflix.Report.failure('The movie has already been added to the list!');
+    Notiflix.Report.failure('The movie been added to the list!');
     return;
   }
 
-  parsedWathcedFilms.push(filmIdToLS);
-  Notiflix.Report.success('Film added to WATCHED');
-  localStorage.setItem('WatchedFilms', JSON.stringify(parsedWathcedFilms));
+  // parsedWathcedFilms.push(filmIdToLS);
+  // Notiflix.Report.success('Film added to WATCHED');
+  // localStorage.setItem('WatchedFilms', JSON.stringify(parsedWathcedFilms));
 }
 
 
@@ -147,13 +159,14 @@ export function addToQueue() {
     localStorage.setItem('QueueFilms', JSON.stringify([filmIdToLS]));
   }
   if (parsedQueueFilms.includes(filmIdToLS)) {
-    return Notiflix.Report.failure('The movie has already been added to the queue!');
+    return Notiflix.Report.failure('The movie been added to the queue!');
   }
 
-  parsedQueueFilms.push(filmIdToLS);
-  Notiflix.Report.success('Film added to QUEUE');
-  localStorage.setItem('QueueFilms', JSON.stringify(parsedQueueFilms));
+  // parsedQueueFilms.push(filmIdToLS);
+  // Notiflix.Report.success('Film added to QUEUE');
+  // localStorage.setItem('QueueFilms', JSON.stringify(parsedQueueFilms));
 }
+
 
 
 
