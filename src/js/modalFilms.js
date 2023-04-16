@@ -124,11 +124,11 @@ function renderModalFilms({
 </div>`;
   const instance = basicLightbox.create(markup);
   instance.show();
-
+  refs.body.classList.add('no-scroll');
   window.addEventListener('keydown', event => closeModalEscape(event));
 
   function closeModal() {
-    // refs.body.classList.remove('no-scroll');
+    refs.body.classList.remove('no-scroll');
     instance.close();
     document.removeEventListener('keydown', event => closeModalEscape(event));
   }

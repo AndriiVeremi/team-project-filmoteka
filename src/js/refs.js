@@ -5,6 +5,7 @@ export default function getRefs() {
 
         projectTeam: document.querySelector('.js-team'),
         modal: document.querySelector('.js-overlay-modal'),
+        body: document.querySelector('body'),
 
         queueBtn: document.querySelector('button[data-page="queue"]'),        
         watchedBtn: document.querySelector('button[data-page="watched"]'),
