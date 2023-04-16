@@ -15,7 +15,7 @@ async function clickMove(event) {
     const data = response.data;
     renderModalFilms(data);
 
-    if (
+    if (     
       event.target.nodeName === 'DIV' ||
       event.target.nodeName === 'IMG' ||
       event.target.nodeName === 'H2' ||
@@ -25,7 +25,6 @@ async function clickMove(event) {
       const queueAdd = document.querySelector(`[data-add="queue"]`);
       wathcedAdd.addEventListener('click', addToWatched);
       queueAdd.addEventListener('click', addToQueue);
-      // window.addEventListener('keydown', event => closeModalEscape(event));
     }
 
   } catch (error) {
@@ -127,6 +126,9 @@ function renderModalFilms({
   refs.body.classList.add('no-scroll');
   window.addEventListener('keydown', event => closeModalEscape(event));
 
+  const buttonTreiler = document.querySelector('.button-open-trailer');
+  buttonTreiler.addEventListener('click', clickTrailer);
+  
   function closeModal(event) {
     refs.body.classList.remove('no-scroll');
     instance.close(() => refs.body.classList.remove('no-scroll'));
@@ -139,7 +141,26 @@ function renderModalFilms({
     }
     closeModal();
   }
+  
 }
+
+export function clickTrailer(event) {
+  event.preventDefault();
+
+  const filmIdToLS = document.querySelector(`[data-add="wathced"]`).dataset.id;
+
+  API.getMoveVideo(filmIdToLS).then(data => {
+    if (data.data.results.length > 0) {
+      window.open(
+        `https://www.youtube.com/watch?v=${data.data.results[0].key}`,
+        '_blank'
+      );
+    } else {
+      Notify.failure('Sorry, but there is no trailer for this movie');
+    }
+  });
+}
+
 
 export function addToWatched(event) {
 
