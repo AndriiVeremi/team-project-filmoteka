@@ -1,15 +1,9 @@
-import icon from 'url:../../src/images/icon.svg';
-export const parentEl = document.querySelector('');
+import preloaderGIF from '../images/spinner/preloaderGIF.gif';
+const preloader = document.querySelector('.preloader');
 
-export const renderSpinner = function (parentEl) {
-  const markup = `
-  <div class="spinner">
-  <svg>
-  <use href="${icon}#icon-spinner"></use>
-  </svg>
-  </div>
-  `;
-  parentEl.innerHTML = '';
-  parentEl.insertAdjacentHTML('afterbegin', markup);
-  console.log(markup);
-};
+window.addEventListener('load', function () {
+  preloader.style.opacity = '0';
+  setTimeout(() => {
+    preloader.style.display = 'none';
+  }, 1000);
+});
