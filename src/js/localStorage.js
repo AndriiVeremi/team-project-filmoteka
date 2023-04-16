@@ -1,9 +1,9 @@
 import getRefs from './refs.js';
-import APIservice from './fetch-API.js';
+import ApiClient from './fetch-API.js';
 import { renderMarkup } from './renderMarkup.js';
 import { popularMovies } from './popularMovies.js';
 
-const API = new APIservice();
+const API = new ApiClient();
 
 const refs = getRefs();
 
@@ -11,8 +11,8 @@ const refs = getRefs();
 const QUEUE_KEY = 'queue';
 const WATCHED_KEY = 'watched';
 
-// refs.addToWatchedBtn.addEventListener('click', setWatched);
-// refs.addToQueueBtn.addEventListener('click', setQueue);
+refs.addToWatchedBtn.addEventListener('click', setWatched);
+refs.addToQueueBtn.addEventListener('click', setQueue);
 refs.watchedBtn.addEventListener('click', showWatched);
 refs.queueBtn.addEventListener('click', showQueue);
 
@@ -26,9 +26,9 @@ async function showWatched() {
   localStorage.setItem(QUEUE_KEY, JSON.stringify(data));
   // API.resetPage();
   try {
-    // localStorage.getItem(WATCHED_KEY) === null
-    //   ? (refs.gallery.innerHTML = '')
-    //   : JSON.parse(localStorage.getItem(WATCHED_KEY));
+    localStorage.getItem(WATCHED_KEY) === null
+      ? (refs.gallery.innerHTML = '')
+      : JSON.parse(localStorage.getItem(WATCHED_KEY));
   } catch (error) {
     console.error(message);
   }
@@ -59,6 +59,6 @@ function setWatched() {
 }
 
 function setQueue(e) {
-  formData[e.target.name] = e.target.value;
+  // formData[e.target.name] = e.target.value;
   localStorage.setItem(QUEUE_KEY, JSON.stringify(formData));
 }
