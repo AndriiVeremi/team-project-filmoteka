@@ -5,7 +5,7 @@ import getRefs from './refs.js';
 import APIservice from './fetch-API.js';
 
 
-// const refs = getRefs();
+const refs = getRefs();
 const API = new APIservice();
 
 async function clickMove(event) {
@@ -17,18 +17,17 @@ async function clickMove(event) {
     try {      
         const response = await API.getMoveInfo(moveId)
         console.log(response)
-        const hits = response.data;  
+      const data = response.data ;  
         
-        console.log(hits)
+        console.log(data)
 
-        renderModalFilms(hits)
+        renderModalFilms(data)
     } catch (error) {
         console.log(error);
     }   
 }
 
 refs.gallery.addEventListener('click', clickMove);
-
 
 function renderModalFilms({
   poster_path,
@@ -42,13 +41,12 @@ function renderModalFilms({
   id,
 }) {
   const movieGenres = genres.map(({ name }) => name).join(', ');
-
   const markup = `<div class="movie-card">
   <div class="movie-card_request">
     <div class="movie-card_img-cover">
       <img
       class="movie-card_photo"
-      src="${checkImg(poster_path)}"
+      src="${poster_path}"
       alt="${title}"
     />
       <button type="button" class="button-open-trailer"></button>
@@ -64,9 +62,8 @@ function renderModalFilms({
           </td>
           <td>
             <p>
-              <span class= "movie-table_vote"> <span class= "movie-table_vote_aver"> ${vote_average.toFixed(
-    1
-  )} </span> / ${vote_count}</span>
+              <span class= "movie-table_vote"> <span class= "movie-table_vote_aver">
+              ${vote_average.toFixed(1)} </span> / ${vote_count}</span>
             </p>
           </td>
         </tr>
@@ -110,4 +107,10 @@ function renderModalFilms({
     </ul>
   </div>
 </div>`;
+  
+  const instance = basicLightbox.create(markup);
+
+  instance.show();
 }
+
+

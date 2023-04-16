@@ -4,6 +4,7 @@ export default function getRefs() {
         goTopBtn: document.querySelector('.go-top'),
 
         projectTeam: document.querySelector('.js-team'),
+        modal: document.querySelector('.js-overlay-modal'),
 
         queueBtn: document.querySelector('button[data-page="queue"]'),
         addToQueueBtn: document.querySelector('button[data-action="add-to-queue"]'),
