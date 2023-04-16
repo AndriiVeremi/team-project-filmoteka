@@ -22,18 +22,20 @@ async function showWatched() {
   const data = await API.getMoveTrending();
   console.log(data);
   console.log(data.data.results[4].id);
+  // formData = data.data.results[4];
+  localStorage.setItem(QUEUE_KEY, JSON.stringify(data));
   // API.resetPage();
   try {
-    localStorage.getItem(WATCHED_KEY) === null
-      ? (refs.gallery.innerHTML = '')
-      : JSON.parse(localStorage.getItem(WATCHED_KEY));
+    // localStorage.getItem(WATCHED_KEY) === null
+    //   ? (refs.gallery.innerHTML = '')
+    //   : JSON.parse(localStorage.getItem(WATCHED_KEY));
   } catch (error) {
     console.error(message);
   }
   // const resp = API.getMoveTrending();
   // console.log(resp.data.results);
   // popularMovies();
-  renderMarkup(data.data.results);
+  // renderMarkup(data.data.results);
 }
 
 function showQueue() {
@@ -44,7 +46,11 @@ function showQueue() {
   } catch (error) {
     console.error(message);
   }
-  // renderMarkup();
+  // console.log(JSON.parse(localStorage.getItem(QUEUE_KEY)));
+  const data = JSON.parse(localStorage.getItem(QUEUE_KEY));
+  const results = data.data;
+  console.log(results);
+  renderMarkup(results);
 }
 
 function setWatched() {
