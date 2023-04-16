@@ -7,12 +7,12 @@ export default function getRefs() {
         modal: document.querySelector('.js-overlay-modal'),
 
         queueBtn: document.querySelector('button[data-page="queue"]'),
-        addToQueueBtn: document.querySelector('button[data-action="add-to-queue"]'),
+        addToQueueBtn: document.querySelector('[data-add="queue"]'),
         watchedBtn: document.querySelector('button[data-page="watched"]'),
-        addToWatchedBtn: document.querySelector('button[data-action="add-to-watch"]'),
+        addToWatchedBtn: document.querySelector('[data-add="wathced"]'),
         
         // modalWindow: document.querySelector(''),
-        overlay: document.querySelector('.overlay'),
+        // overlay: document.querySelector('.overlay'),
         // btnCloseModal: document.querySelector(''),
         // btnOpenModal: document.querySelectorAll(''),
 
