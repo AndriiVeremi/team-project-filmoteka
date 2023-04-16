@@ -8,7 +8,7 @@ import { renderModalFilms } from './renderModalFilms.js';
 const refs = getRefs();
 const API = new APIservice();
 
-export async function clickOnMove(event) {
+async function clickMove(event) {
     event.preventDefault();
 
     const moveId = event.target.dataset.id;
@@ -16,21 +16,44 @@ export async function clickOnMove(event) {
     console.log(moveId);
     try {
         
-        const response = await API.getMoveInfo(moveId)
+        const response = await API.getMoveInfo(moveId).then(renderModalFilms)
         console.log(response)
+        
        
+        
+
     } catch (error) {
         console.log(error);
     } 
+
+    // renderCardFilms(response)
 }
 
-refs.gallery.addEventListener('click', clickOnMove);
+refs.gallery.addEventListener('click', clickMove);
 
 
 
-// export async function renderCardFilms(results) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// export function renderCardFilms(film) {
     
-//     const markup = results.map(({ poster_path, title, popularity, id, genres, vote_average, vote_count, original_title }) => {
+//     const markup = film.map(({ poster_path, title, popularity, id, genres, vote_average, vote_count, original_title }) => {
 //         return `<div class="modal__container">
 //     <div class="film__image">
 //         ${poster_path}
@@ -87,22 +110,23 @@ refs.gallery.addEventListener('click', clickOnMove);
 //     </div>
 //  </div>`;
 //     }).join('');
+//     const modal = basicLightbox.create(markup);
+//     refs.gallery.insertAdjacentHTML('beforeend', markup);
 // };
 
 
-// const modal = basicLightbox.create(markup);
-// // refs.gallery.insertAdjacentHTML('beforeend', markup);
-// function openModal(e) {
-//     modal.show();
 
-//     window.addEventListener('keydown', closeModalHandler);
+// // function openModal(e) {
+// //     modal.show();
 
-//     function closeModalHandler(e) {
-//         if (e.code === 'Escape') {
-//             modal.close();
-//             window.removeEventListener('keydown', closeModalHandler);
-//         }
-//     }
-// }
+// //     window.addEventListener('keydown', closeModalHandler);
+
+// //     function closeModalHandler(e) {
+// //         if (e.code === 'Escape') {
+// //             modal.close();
+// //             window.removeEventListener('keydown', closeModalHandler);
+// //         }
+// //     }
+// // }
 
 
