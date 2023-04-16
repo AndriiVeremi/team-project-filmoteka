@@ -1,0 +1,326 @@
+body.no-scroll {
+  overflow: hidden;
+}
+
+.modal-movie {
+  background-color: #fff;
+
+  border-radius: 20px;
+  padding: 48px 20px 40px;
+
+  scroll-behavior: smooth;
+  overflow-y: hidden;
+
+  @media screen and (max-width: 767px) {
+    width: 85dvw;
+    height: 95dvh;
+  }
+  @media screen and (min-width: $tablet) {
+    width: 704px;
+    padding: 40px 72px 40px 36px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 806px;
+    padding: 40px 12px;
+  }
+}
+
+.button-close {
+  position: absolute;
+  z-index: 100;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: initial;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: 8px;
+  margin-right: 8px;
+  transform: scale(1);
+  transition: border-color $cubic, background-color $cubic, transform $cubic;
+
+  &:hover,
+  &:focus {
+    background-color: $background-accent-cl;
+    border-color: $background-accent-cl;
+    transition: border-color $cubic, background-color $cubic, transform $cubic;
+  }
+}
+
+.movie-card {
+  display: flex;
+  @media screen and (min-width: $mobile) {
+    flex-direction: column;
+  }
+
+  @media screen and (min-width: $tablet) {
+    flex-direction: row;
+  }
+
+  @media screen and (min-width: $desktop) {
+    flex-direction: row;
+  }
+}
+
+.movie-card_request {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.movie-card_img-cover {
+  position: relative;
+}
+
+.movie-card_photo {
+  display: flex;
+  border-radius: 4px;
+  @media screen and (min-width: $mobile) and (max-width: 767px) {
+    width: 240px;
+    height: 357px;
+
+    margin-bottom: 20px;
+  }
+
+  @media screen and (min-width: $tablet) and (max-width: 1279px) {
+    width: 264px;
+    height: 374px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 375px;
+    height: 478px;
+  }
+}
+
+.button-open-trailer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-style: solid;
+  /* background: $background-accent-cl;*/
+  box-sizing: border-box;
+  width: calc(55px * 2);
+  border-width: 5px;
+  height: calc(55px * 2);
+  border-radius: 50%;
+  border-color: white;
+  background-color: transparent;
+  @media screen and (min-width: $mobile) and (max-width: 767px) {
+    width: 55px;
+    height: 55px;
+    border-width: 2px;
+  }
+  &:hover,
+  &:focus {
+    background-color: $background-accent-cl;
+    border-color: transparent, transparent, transparent, rgb(255, 0, 0);
+    border-style: solid;
+  }
+}
+
+.button-open-trailer::after {
+  content: '';
+  display: inline-block;
+  position: relative;
+  top: 1px;
+  left: 3px;
+  border-style: solid;
+  border-width: 20px 0 20px 40px;
+  @media screen and (min-width: $mobile) and (max-width: 767px) {
+    border-width: 10px 0 10px 20px;
+  }
+  border-color: transparent transparent transparent white;
+  &:hover,
+  &:focus {
+    background-color: $background-accent-cl;
+    border-style: solid;
+  }
+}
+
+.movie-description {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: $main-font;
+  font-size: 12px;
+  width: 90%;
+
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.movie-title {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.17;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  @media screen and (min-width: $tablet) and (max-width: 1279px) {
+    margin-left: 68px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-left: 16px;
+    font-size: 30px;
+  }
+}
+
+.movie-table {
+  @media screen and (min-width: $tablet) {
+    margin-left: 68px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-left: 16px;
+  }
+}
+
+.movie-table_row {
+  border-right: 41px solid transparent;
+
+  @media screen and (min-width: $desktop) {
+    border-right: 85px solid transparent;
+  }
+}
+
+.movie-table_title {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  color: $modal-text-cl;
+}
+.movie-table_vote_aver {
+  padding-left: 4px;
+  background-color: $accent-text-cl;
+  color: #fff;
+
+  border-radius: 4px;
+}
+.movie-table_title_ori {
+  text-transform: uppercase;
+}
+.movie-about_container {
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: $mobile) {
+    // width: 240px;
+    height: auto;
+  }
+
+  @media screen and (min-width: $tablet) {
+    width: 264px;
+    height: auto;
+    margin-left: 68px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 391px;
+    height: auto;
+    margin-left: 16px;
+  }
+}
+
+.movie-about {
+  display: flex;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  margin-bottom: 8px;
+  margin-top: 20px;
+}
+
+.movie-about_text {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.67;
+  margin-bottom: 20px;
+  width: 100%;
+  @media screen and (max-width: 767px) {
+    max-height: 100px;
+    overflow: auto;
+  }
+
+  @media screen and (min-width: 767px) and (max-width: $desktop) {
+    max-height: 236px;
+    overflow: auto;
+  }
+}
+
+.movie-list {
+//   @extend %list;
+  display: flex;
+  @media screen and (max-width: 767px) {
+    justify-content: center;
+  }
+}
+
+.movie-item:not(:last-child) {
+  @media screen and (min-width: $mobile) and (max-width: 767px) {
+    margin-right: 20px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    margin-left: 68px;
+    margin-right: 15px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-left: 16px;
+  }
+}
+
+.movie-item_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: $black-text-cl;
+  background-color: $white-text-cl;
+  border: 1px solid rgba(0, 0, 0, 1);
+  border-radius: 5px;
+  transition: background-color $cubic, color $cubic;
+
+  &:hover,
+  &:focus {
+    background-color: $background-accent-cl;
+    color: $white-text-cl;
+  }
+
+  @media screen and (min-width: $mobile) and (max-width: 767px) {
+    width: 110px;
+    height: 44px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    width: 125px;
+    height: 44px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 136px;
+    height: 44px;
+  }
+}
+.hover {
+  margin-top: 15px;
+  &:hover,
+  &:focus {
+    background-color: $warning-text-cl;
+    color: $white-text-cl;
+  }
+}

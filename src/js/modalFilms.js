@@ -41,7 +41,8 @@ function renderModalFilms({
   id,
 }) {
   const movieGenres = genres.map(({ name }) => name).join(', ');
-  const markup = `<div class="movie-card">
+  const markup = `<div class="modal-movie" id="modal_movie">
+  <div class="movie-card">
   <div class="movie-card_request">
     <div class="movie-card_img-cover">
       <img
@@ -106,6 +107,7 @@ function renderModalFilms({
        </li>
     </ul>
   </div>
+</div>
 </div>`;
   
   const instance = basicLightbox.create(markup);

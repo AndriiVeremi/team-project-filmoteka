@@ -3,6 +3,34 @@ $main-text: #000000;
 $accent-text: #B92F2C;
 $footer-text: #ababab;
 
-// Animation
-$cubic: cubic-bezier(0.4, 0, 0.2, 1);
-$duration: 250ms;
+/* fonts */
+$main-font: 'Roboto', sans-serif;
+
+/*break points*/
+$mobile: 320px;
+$tablet: 768px;
+$desktop: 1280px;
+
+/* Colors */
+
+$black-text-cl: #000000;
+$white-text-cl: #ffffff;
+$accent-text-cl: #ff001b;
+$modal-text-cl: #8c8c8c;
+$footer-text-cl: #545454;
+
+$warning-text-cl: #ff001b;
+
+$focus-cl: #ff001b;
+
+$background-cl: #e5e5e5;
+$background-footer-cl: #f7f7f7;
+$background-accent-cl: #ff001b;
+$background-header-cl: rgba(0, 0, 0, 0.56);
+
+/* Animation cubic timing function */
+$cubic: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+/* Order */
+$items: 3;
+$indent: 20px;
