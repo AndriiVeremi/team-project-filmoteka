@@ -5,5 +5,5 @@ window.addEventListener('load', function () {
   preloader.style.opacity = '0';
   setTimeout(() => {
     preloader.style.display = 'none';
-  }, 2000);
+  }, 300);
 });
