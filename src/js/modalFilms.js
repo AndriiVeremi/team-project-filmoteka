@@ -125,11 +125,6 @@ function renderModalFilms({
   instance.show();
 }
 
-
-
-console.log(refs.gallery);
-
-
 export function addToWatched(event) {
 
   const filmIdToLS = document.querySelector(`[data-add="wathced"]`).dataset.id;
@@ -145,9 +140,9 @@ export function addToWatched(event) {
     return;
   }
 
-  // parsedWathcedFilms.push(filmIdToLS);
-  // Notiflix.Report.success('Film added to WATCHED');
-  // localStorage.setItem('WatchedFilms', JSON.stringify(parsedWathcedFilms));
+  parsedWathcedFilms.push(filmIdToLS);
+  Notiflix.Report.success('Film added to WATCHED');
+  localStorage.setItem('WatchedFilms', JSON.stringify(parsedWathcedFilms));
 }
 
 
@@ -162,125 +157,55 @@ export function addToQueue() {
     return Notiflix.Report.failure('The movie been added to the queue!');
   }
 
-  // parsedQueueFilms.push(filmIdToLS);
-  // Notiflix.Report.success('Film added to QUEUE');
-  // localStorage.setItem('QueueFilms', JSON.stringify(parsedQueueFilms));
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function onAddToWatched(e) {
-  const filmIdToLS = document.querySelector(`[data-add="wathced"]`).dataset.id;
-
-  const parsedWathcedFilms = JSON.parse(localStorage.getItem('WatchedFilms'));
-  if (parsedWathcedFilms === null) {
-    Notiflix.Report.success('', 'Film added to WATCHED');
-    localStorage.setItem('WatchedFilms', JSON.stringify([filmIdToLS]));
-  }
-
-  if (parsedWathcedFilms.includes(filmIdToLS)) {
-    Notiflix.Report.failure(
-      '',
-      'The movie has already been added to the list!'
-    );
-    return;
-  }
-
-  parsedWathcedFilms.push(filmIdToLS);
-  Notiflix.Report.success('', 'Film added to WATCHED');
-  localStorage.setItem('WatchedFilms', JSON.stringify(parsedWathcedFilms));
-}
-
-
-function onAddToQueue() {
-  const filmIdToLS = document.querySelector(`[data-add="queue"]`).dataset.id;
-
-  const parsedQueueFilms = JSON.parse(localStorage.getItem('QueueFilms'));
-  if (parsedQueueFilms === null) {
-    localStorage.setItem('QueueFilms', JSON.stringify([filmIdToLS]));
-  }
-  if (parsedQueueFilms.includes(filmIdToLS)) {
-    return Notiflix.Report.failure(
-      '',
-      'The movie has already been added to the queue!'
-    );
-  }
-
   parsedQueueFilms.push(filmIdToLS);
-  Notiflix.Report.success('', 'Film added to QUEUE');
+  Notiflix.Report.success('Film added to QUEUE');
   localStorage.setItem('QueueFilms', JSON.stringify(parsedQueueFilms));
 }
 
-function onRemoveFromWatched(e) {
-  const filmIdToLS = document.querySelector(`[data-remove="wathced"]`).dataset
-    .id;
 
-  const parsedWathcedFilms = JSON.parse(localStorage.getItem('WatchedFilms'));
-  if (!parsedWathcedFilms) {
-    Notiflix.Report.failure('', 'The list of watched is empty');
-    return;
-  }
-  if (!parsedWathcedFilms.includes(filmIdToLS)) {
-    Notiflix.Report.failure('', 'There is no such movie in your watched list');
-    return;
-  }
-  if (parsedWathcedFilms.includes(filmIdToLS)) {
-    Notiflix.Report.success('', 'Movie is removed from watched');
-    localStorage.removeItem('WatchedFilms', JSON.stringify([filmIdToLS]));
-  }
 
-  parsedWathcedFilms.splice(parsedWathcedFilms.indexOf(filmIdToLS), 1);
-  Notiflix.Report.success('', 'Movie Del From WATCHED');
-  localStorage.setItem('WatchedFilms', JSON.stringify(parsedWathcedFilms));
-}
 
-function onRemoveFromQueue() {
-  const filmIdToLS = document.querySelector(`[data-remove="queue"]`).dataset.id;
-  const parsedQueueFilms = JSON.parse(localStorage.getItem('QueueFilms'));
+// function onRemoveFromWatched(e) {
+//   const filmIdToLS = document.querySelector(`[data-remove="wathced"]`).dataset
+//     .id;
 
-  if (!parsedQueueFilms) {
-    Notiflix.Report.failure('', 'The list of watched is empty');
-    return;
-  }
+//   const parsedWathcedFilms = JSON.parse(localStorage.getItem('WatchedFilms'));
+//   if (!parsedWathcedFilms) {
+//     Notiflix.Report.failure('', 'The list of watched is empty');
+//     return;
+//   }
+//   if (!parsedWathcedFilms.includes(filmIdToLS)) {
+//     Notiflix.Report.failure('', 'There is no such movie in your watched list');
+//     return;
+//   }
+//   if (parsedWathcedFilms.includes(filmIdToLS)) {
+//     Notiflix.Report.success('', 'Movie is removed from watched');
+//     localStorage.removeItem('WatchedFilms', JSON.stringify([filmIdToLS]));
+//   }
 
-  if (!parsedQueueFilms.includes(filmIdToLS)) {
-    Notiflix.Report.failure('', 'There is no such movie in your queue list');
-    return;
-  }
-  if (parsedQueueFilms.includes(filmIdToLS)) {
-    Notiflix.Report.success('', 'Movie is removed from queue');
-    localStorage.removeItem('QueueFilms', JSON.stringify([filmIdToLS]));
-  }
-  parsedQueueFilms.splice(parsedQueueFilms.indexOf(filmIdToLS), 1);
-  Notiflix.Report.success('', 'Movie DEL QUEUE');
-  localStorage.setItem('QueueFilms', JSON.stringify(parsedQueueFilms));
-}
+//   parsedWathcedFilms.splice(parsedWathcedFilms.indexOf(filmIdToLS), 1);
+//   Notiflix.Report.success('', 'Movie Del From WATCHED');
+//   localStorage.setItem('WatchedFilms', JSON.stringify(parsedWathcedFilms));
+// }
+
+// function onRemoveFromQueue() {
+//   const filmIdToLS = document.querySelector(`[data-remove="queue"]`).dataset.id;
+//   const parsedQueueFilms = JSON.parse(localStorage.getItem('QueueFilms'));
+
+//   if (!parsedQueueFilms) {
+//     Notiflix.Report.failure('', 'The list of watched is empty');
+//     return;
+//   }
+
+//   if (!parsedQueueFilms.includes(filmIdToLS)) {
+//     Notiflix.Report.failure('', 'There is no such movie in your queue list');
+//     return;
+//   }
+//   if (parsedQueueFilms.includes(filmIdToLS)) {
+//     Notiflix.Report.success('', 'Movie is removed from queue');
+//     localStorage.removeItem('QueueFilms', JSON.stringify([filmIdToLS]));
+//   }
+//   parsedQueueFilms.splice(parsedQueueFilms.indexOf(filmIdToLS), 1);
+//   Notiflix.Report.success('', 'Movie DEL QUEUE');
+//   localStorage.setItem('QueueFilms', JSON.stringify(parsedQueueFilms));
+// }
