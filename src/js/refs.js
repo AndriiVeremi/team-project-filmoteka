@@ -3,7 +3,6 @@ export default function getRefs() {
     gallery: document.querySelector('.js-gallery'),
     goTopBtn: document.querySelector('.go-top'),
 
-    projectTeam: document.querySelector('.js-team'),
     modal: document.querySelector('.js-overlay-modal'),
     body: document.querySelector('body'),
 
