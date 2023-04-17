@@ -7,6 +7,8 @@ import APIservice from './fetch-API.js';
 const refs = getRefs();
 const API = new APIservice();
 
+
+
 async function clickMove(event) {
   event.preventDefault();
   const moveId = event.target.closest('li').dataset.id;
@@ -33,6 +35,9 @@ async function clickMove(event) {
 }
 
 refs.gallery.addEventListener('click', clickMove);
+
+
+
 
 function renderModalFilms({
   poster_path,
@@ -121,16 +126,16 @@ function renderModalFilms({
   </div>
 </div>
 </div>`;
-  const instance = basicLightbox.create(markup);
+  const instance = basicLightbox.create(markup, );
   instance.show();
-  refs.body.classList.add('no-scroll');
+  // refs.body.classList.add('no-scroll');
   window.addEventListener('keydown', event => closeModalEscape(event));
 
   const buttonTreiler = document.querySelector('.button-open-trailer');
   buttonTreiler.addEventListener('click', clickTrailer);
   
   function closeModal(event) {
-    refs.body.classList.remove('no-scroll');
+    // refs.body.classList.remove('no-scroll');
     instance.close(() => refs.body.classList.remove('no-scroll'));
     window.removeEventListener('keydown', event => closeModalEscape(event));
   }
@@ -141,6 +146,15 @@ function renderModalFilms({
     }
     closeModal();
   }
+
+  // const instance = basicLightbox.create(refs.backdrop, {
+  //   onShow: instance => { },
+  //   onClose: instance => {
+  //     document.querySelector('.modal-movie').style.overflowY = 'scroll';
+  //     refs.body.classList.remove('no-scroll');
+  //   },
+  // });
+
   
 }
 
