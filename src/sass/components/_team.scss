@@ -1,4 +1,5 @@
 .modal-container {
+  position: relative;
   background-color: #fff;
 
   border-radius: 5px;
@@ -13,6 +14,7 @@
   }
   @media screen and (min-width: $tablet) {
     width: 704px;
+    overflow-y: hidden;
   }
 
   @media screen and (min-width: $desktop) {
@@ -97,3 +99,5 @@
     height: 24px;
   }
 }
+
+
