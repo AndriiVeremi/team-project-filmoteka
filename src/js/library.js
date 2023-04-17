@@ -1,6 +1,7 @@
 import getRefs from './refs.js';
 import APIservice from './fetch-API.js';
 import { renderMarkup } from './renderMarkup.js';
+import {replaceIdtoGenre} from './popularMovies.js'
 
 
 const API = new APIservice();
@@ -37,16 +38,23 @@ try{
   const QueueMoviesId = JSON.parse(localStorage.getItem(QUEUE_KEY));
   const moviesId = WatcheMoviesId.concat(QueueMoviesId)
 console.log(WatcheMoviesId);
-  console.log(QueueMoviesId);
-  console.log(moviesId);
+  // console.log(QueueMoviesId);
+  // console.log(moviesId);
   try {
     const response = await API.getMoveTrending();
     refs.gallery.innerHTML = '';
     console.log(response.data.results);
     const results = response.data.results;
+    const arrGenreId = results.map(item => item.genre_ids);
+// console.log(arrGenreId);
+const genreResponse = await API.getMoveGanres();
+    const arrGenre = genreResponse.data.genres;
+
+    // console.log(arrGenre);
     for (const id of moviesId) {
-      console.log(id);
+      // console.log(id);
       const moveId = results.filter(item => item.id == id);
+      replaceIdtoGenre(arrGenre, arrGenreId);
       renderMarkup(moveId);
     }
   } catch (error) {
