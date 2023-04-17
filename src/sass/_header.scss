@@ -129,6 +129,11 @@ background-image:
     }
 }
 
+.active {
+    background-color: $main-text;
+    color: #fff; 
+}
+
 .home-nav .nav-btn:hover,
 .home-nav .nav-btn:focus,
 .home-nav .nav-btn:active {

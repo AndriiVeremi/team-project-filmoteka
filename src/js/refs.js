@@ -14,6 +14,9 @@ export default function getRefs() {
 
     addToQueueBtn: document.querySelector('[data-add="queue"]'),
     addToWatchedBtn: document.querySelector('[data-add="wathced"]'),
+
+    pageHome: document.querySelector('[data-page="home"]'),
+    pageLibrary: document.querySelector('[data-page="library"]')
   };
   return refs;
 }
