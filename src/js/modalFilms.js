@@ -127,29 +127,26 @@ function renderModalFilms({
 </div>
 </div>`;
   
-  
   const instance = basicLightbox.create(markup , {
-    show: instance => { },
-    closeModal: instance => {
+    onShow: instance => {
+      refs.body.classList.add('no-scroll');
+      window.addEventListener('keydown', event => closeModalEscape(event));
+     },
+    onClose: instance => {
       document.querySelector('.modal-movie').style.overflowY = 'scroll';
       refs.body.classList.remove('no-scroll');
+      window.removeEventListener('keydown', event => closeModalEscape(event));
     },
   });
   
-  
-  
-  // const instance = basicLightbox.create(markup, );
   instance.show();
-  // refs.body.classList.add('no-scroll');
-  window.addEventListener('keydown', event => closeModalEscape(event));
-
+ 
   const buttonTreiler = document.querySelector('.button-open-trailer');
   buttonTreiler.addEventListener('click', clickTrailer);
   
   function closeModal(event) {
-    // refs.body.classList.remove('no-scroll');
-    instance.close(() => refs.body.classList.remove('no-scroll'));
-    window.removeEventListener('keydown', event => closeModalEscape(event));
+    instance.close();
+   
   }
 
   function closeModalEscape(event) {
@@ -159,15 +156,6 @@ function renderModalFilms({
     closeModal();
   }
 
-  // const instance = basicLightbox.create(refs.backdrop, {
-  //   onShow: instance => { },
-  //   onClose: instance => {
-  //     document.querySelector('.modal-movie').style.overflowY = 'scroll';
-  //     refs.body.classList.remove('no-scroll');
-  //   },
-  // });
-
-  
 }
 
 export function clickTrailer(event) {
