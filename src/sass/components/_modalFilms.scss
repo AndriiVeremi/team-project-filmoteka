@@ -27,6 +27,17 @@ body.no-scroll {
   }
 }
 
+// .js-overlay-modal {
+//   opacity: 0;
+//   visibility: hidden;
+//   pointer-events: none;
+// }
+// .modal-show {
+//   opacity: 1;
+//   visibility: visible;
+//   pointer-events: initial;
+// }
+
 .button-close {
   position: absolute;
   z-index: 100;
@@ -52,6 +63,17 @@ body.no-scroll {
     border-color: $background-accent-cl;
     transition: border-color $cubic, background-color $cubic, transform $cubic;
   }
+}
+.modal-btn--close {
+  font-family: inherit;
+  color: inherit;
+  position: absolute;
+  top: 2px;
+  right: 16px;
+  font-size: 35px;
+  cursor: pointer;
+  border: none;
+  background: none;
 }
 
 .movie-card {
@@ -261,7 +283,7 @@ body.no-scroll {
 }
 
 .movie-list {
-//   @extend %list;
+  //   @extend %list;
   display: flex;
   @media screen and (max-width: 767px) {
     justify-content: center;

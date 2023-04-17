@@ -11,11 +11,11 @@ async function clickMove(event) {
   event.preventDefault();
   const moveId = event.target.closest('li').dataset.id;
   try {
-    const response = await API.getMoveInfo(moveId)
+    const response = await API.getMoveInfo(moveId);
     const data = response.data;
     renderModalFilms(data);
 
-    if (     
+    if (
       event.target.nodeName === 'DIV' ||
       event.target.nodeName === 'IMG' ||
       event.target.nodeName === 'H2' ||
@@ -23,10 +23,14 @@ async function clickMove(event) {
     ) {
       const wathcedAdd = document.querySelector(`[data-add="wathced"]`);
       const queueAdd = document.querySelector(`[data-add="queue"]`);
+
+      const btnClose = document.querySelector('[data-add = close]');
+
+      btnClose.addEventListener('click', closeModal);
+
       wathcedAdd.addEventListener('click', addToWatched);
       queueAdd.addEventListener('click', addToQueue);
     }
-
   } catch (error) {
     console.log(error);
   }
@@ -45,15 +49,16 @@ function renderModalFilms({
   popularity,
   id,
 }) {
-
   const checkImg = url =>
-    `${!url
-      ? `https://img.freepik.com/premium-vector/video-production-logo-fun-modern-black_434503-786.jpg?w=1060`
-      : `https://image.tmdb.org/t/p/w500${url}`
+    `${
+      !url
+        ? `https://img.freepik.com/premium-vector/video-production-logo-fun-modern-black_434503-786.jpg?w=1060`
+        : `https://image.tmdb.org/t/p/w500${url}`
     }`;
 
   const movieGenres = genres.map(({ name }) => name).join(', ');
-  const markup = `<div class="modal-movie" id="modal_movie">
+  const markup = `<div class="modal-movie js-overlay-modal" id="modal_movie">
+<button class = 'modal-btn--close' data-add="close">&times;</button>
   <div class="movie-card">
   <div class="movie-card_request">
     <div class="movie-card_img-cover">
@@ -128,9 +133,20 @@ function renderModalFilms({
 
   const buttonTreiler = document.querySelector('.button-open-trailer');
   buttonTreiler.addEventListener('click', clickTrailer);
-  
-  function closeModal(event) {
+
+  // export function closeModal() {
+  //   window.removeEventListener('keydown', closeModalHandler);
+  //   refs.modal.classList.remove('js-overlay-modal');
+  // }
+  // function closeModalHandler(e) {
+  //   if (e.key === 'Escape' && !modal.classList.contains('js-overlay-modal')) {
+  //     closeModal();
+  //   }
+  // }
+
+  function closeModal() {
     refs.body.classList.remove('no-scroll');
+    refs.modal.classList.remove('js-overlay-modal');
     instance.close(() => refs.body.classList.remove('no-scroll'));
     window.removeEventListener('keydown', event => closeModalEscape(event));
   }
@@ -141,7 +157,6 @@ function renderModalFilms({
     }
     closeModal();
   }
-  
 }
 
 export function clickTrailer(event) {
@@ -161,9 +176,7 @@ export function clickTrailer(event) {
   });
 }
 
-
 export function addToWatched(event) {
-
   const filmIdToLS = document.querySelector(`[data-add="wathced"]`).dataset.id;
   const parsedWathcedFilms = JSON.parse(localStorage.getItem('WatchedFilms'));
 
@@ -181,7 +194,6 @@ export function addToWatched(event) {
 }
 
 export function addToQueue(event) {
-
   const filmIdToLS = document.querySelector(`[data-add="queue"]`).dataset.id;
   const parsedQueueFilms = JSON.parse(localStorage.getItem('QueueFilms'));
 
@@ -197,8 +209,12 @@ export function addToQueue(event) {
   }
 }
 
-
-
-
-
-
+// export function closeModal() {
+//   window.removeEventListener('keydown', closeModalHandler);
+//   refs.modal.classList.remove('js-overlay-modal');
+// }
+// function closeModalHandler(e) {
+//   if (e.key === 'Escape' && !modal.classList.contains('js-overlay-modal')) {
+//     closeModal();
+//   }
+// }
