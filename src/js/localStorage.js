@@ -1,6 +1,7 @@
 import getRefs from './refs.js';
 import APIservice from './fetch-API.js';
 import { renderMarkup } from './renderMarkup.js';
+import { instance } from './pagination.js';
 
 const API = new APIservice();
 const refs = getRefs();
@@ -26,6 +27,8 @@ async function showWatched() {
     const results = response.data.results;
     for (const id of filmIdToLS) {
       const moveId = results.filter(item => item.id == id);
+      instance.setTotalItems(WATCHED_KEY);
+      instance.reset();
       renderMarkup(moveId);
     }
   } catch (error) {
@@ -48,6 +51,8 @@ async function showQueue() {
     const results = response.data.results;
     for (const id of filmIdToLS) {
       const moveId = results.filter(item => item.id == id);
+      instance.setTotalItems(QUEUE_KEY);
+      instance.reset();
       renderMarkup(moveId);
     }
   } catch (error) {

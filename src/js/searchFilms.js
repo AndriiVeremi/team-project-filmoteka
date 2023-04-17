@@ -2,6 +2,7 @@ import ApiClient from './fetch-API';
 import { renderMarkup } from './renderMarkup';
 import  getRefs  from './refs';
 import { replaceIdtoGenre } from './popularMovies';
+import { instance } from './pagination';
 
 const searchForm = document.querySelector('.search-form');
 const input = document.querySelector('[name="searchQuery"]');
@@ -43,6 +44,12 @@ export async function fetchMoviesSearchQuery() {
 
     const genreResponse = await client.getMoveGanres();
     const arrGenre = genreResponse.data.genres;
+
+    const lastSearchFilmPage = document.querySelector('.tui-ico-last');
+    lastSearchFilmPage.textContent = resp.data.total_pages;
+
+    instance.setTotalItems(resp.data.total_results);
+    instance.reset();
 
     replaceIdtoGenre(arrGenre, arrGenreId);
     renderMarkup(results);
