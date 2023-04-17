@@ -1,0 +1,116 @@
+.tui-pagination {
+    &.custom-tui-pagination {
+        margin-bottom: 60px;
+    }
+
+    .tui-page-btn {
+        font-family: $main-font;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 16px;
+        width: 40px;
+        height: 40px;
+        border-radius: 5px;
+        background: none;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &.tui-is-selected {
+            background-color: $background-accent-cl;
+            color: #fff;
+        }
+
+        &.tui-prev,
+        &.tui-next {
+            background-color: #F7F7F7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .tui-is-disabled {
+
+        .tui-ico-prev,
+        .tui-ico-next {
+            background-color: #a7a7a7;
+        }
+    }
+
+    .tui-ico-ellip,
+    .tui-ico-prev,
+    .tui-ico-next {
+        width: 16px;
+        height: 16px;
+        font-size: 0;
+    }
+
+    .tui-ico-prev,
+    .tui-ico-next {
+        mask-size: cover;
+        background-color: black;
+    }
+
+    .tui-ico-prev {
+        mask-image: url(../images/pagination/left-arrow.svg);
+    }
+
+    .tui-ico-next {
+        mask-image: url(../images/pagination/right-arrow.svg);
+    }
+
+    .tui-ico-ellip {
+        background: url(../images/pagination/dots.svg) no-repeat center;
+    }
+
+    strong {
+        background: transparent;
+    }
+}
+
+#tui-pagination-container {
+    display: grid;
+    grid-template-areas: "prev first page3 page4 page5 page6 page7 page8 page9 last next";
+    grid-template-columns: repeat(auto-fit, 40px);
+    justify-content: center;
+
+    @for $i from 3 through 9 {
+        .tui-page-btn:nth-child(#{$i}) {
+            grid-area: page#{$i};
+        }
+    }
+
+    &:has(.tui-page-btn:nth-child(n + 3):nth-child(-n + 5):is(.tui-is-selected)) {
+        .tui-first {
+            display: none;
+        }
+    }
+
+    &:has(.tui-page-btn:nth-last-child(-n + 5):nth-last-child(n + 3):is(.tui-is-selected)) {
+        .tui-last {
+            display: none;
+        }
+    }
+
+    .tui-page-btn {
+
+        &.tui-prev {
+            grid-area: prev;
+        }
+
+        &.tui-first {
+            grid-area: first;
+        }
+
+        &.tui-last {
+            grid-area: last;
+        }
+
+        &.tui-next {
+            grid-area: next;
+        }
+    }
+}
