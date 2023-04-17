@@ -126,7 +126,19 @@ function renderModalFilms({
   </div>
 </div>
 </div>`;
-  const instance = basicLightbox.create(markup, );
+  
+  
+  const instance = basicLightbox.create(markup , {
+    show: instance => { },
+    closeModal: instance => {
+      document.querySelector('.modal-movie').style.overflowY = 'scroll';
+      refs.body.classList.remove('no-scroll');
+    },
+  });
+  
+  
+  
+  // const instance = basicLightbox.create(markup, );
   instance.show();
   // refs.body.classList.add('no-scroll');
   window.addEventListener('keydown', event => closeModalEscape(event));
