@@ -7,8 +7,6 @@ import APIservice from './fetch-API.js';
 const refs = getRefs();
 const API = new APIservice();
 
-
-
 async function clickMove(event) {
   event.preventDefault();
   const moveId = event.target.closest('li').dataset.id;
@@ -16,28 +14,18 @@ async function clickMove(event) {
     const response = await API.getMoveInfo(moveId)
     const data = response.data;
     renderModalFilms(data);
-
-    if (     
-      event.target.nodeName === 'DIV' ||
-      event.target.nodeName === 'IMG' ||
-      event.target.nodeName === 'H2' ||
-      event.target.nodeName === 'P'
-    ) {
-      const wathcedAdd = document.querySelector(`[data-add="wathced"]`);
-      const queueAdd = document.querySelector(`[data-add="queue"]`);
-      wathcedAdd.addEventListener('click', addToWatched);
-      queueAdd.addEventListener('click', addToQueue);
-    }
-
   } catch (error) {
     console.log(error);
   }
+
+  const wathcedAdd = document.querySelector(`[data-add="wathced"]`);
+  const queueAdd = document.querySelector(`[data-add="queue"]`);
+  wathcedAdd.addEventListener('click', addToWatched);
+  queueAdd.addEventListener('click', addToQueue);
+
 }
 
 refs.gallery.addEventListener('click', clickMove);
-
-
-
 
 function renderModalFilms({
   poster_path,
@@ -126,27 +114,27 @@ function renderModalFilms({
   </div>
 </div>
 </div>`;
-  
-  const instance = basicLightbox.create(markup , {
+
+  const instance = basicLightbox.create(markup, {
     onShow: instance => {
       refs.body.classList.add('no-scroll');
       window.addEventListener('keydown', event => closeModalEscape(event));
-     },
+    },
     onClose: instance => {
       document.querySelector('.modal-movie').style.overflowY = 'scroll';
       refs.body.classList.remove('no-scroll');
       window.removeEventListener('keydown', event => closeModalEscape(event));
     },
   });
-  
+
   instance.show();
- 
+
   const buttonTreiler = document.querySelector('.button-open-trailer');
   buttonTreiler.addEventListener('click', clickTrailer);
-  
+
   function closeModal(event) {
     instance.close();
-   
+
   }
 
   function closeModalEscape(event) {
@@ -210,7 +198,6 @@ export function addToQueue(event) {
     localStorage.setItem('QueueFilms', JSON.stringify(parsedQueueFilms));
   }
 }
-
 
 
 
