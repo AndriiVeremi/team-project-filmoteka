@@ -18,10 +18,20 @@ async function clickMove(event) {
     console.log(error);
   }
 
-  const wathcedAdd = document.querySelector(`[data-add="wathced"]`);
-  const queueAdd = document.querySelector(`[data-add="queue"]`);
-  wathcedAdd.addEventListener('click', addToWatched);
-  queueAdd.addEventListener('click', addToQueue);
+  const active = document.querySelector('.nav-btn.active');
+  if (active.textContent === 'HOME') {
+    // instance.show()
+    const wathcedAdd = document.querySelector(`[data-add="wathced"]`);
+    const queueAdd = document.querySelector(`[data-add="queue"]`);
+    wathcedAdd.addEventListener('click', addToWatched);
+    queueAdd.addEventListener('click', addToQueue);
+  } else {
+    // instanceLib.show()
+    const wathcedRemove = document.querySelector(`[data-remove="wathced"]`);
+    const queueRemove = document.querySelector(`[data-remove="queue"]`);
+    wathcedRemove.addEventListener('click', removeToWatched);
+    queueRemove.addEventListener('click', removeToQueue);
+  }
 
 }
 
@@ -114,7 +124,77 @@ function renderModalFilms({
   </div>
 </div>
 </div>`;
-
+  
+  const markupLibrary = `<div class="modal-movie" id="modal_movie">
+  <div class="movie-card">
+  <div class="movie-card_request">
+    <div class="movie-card_img-cover">
+      <img
+      class="movie-card_photo"
+      src="${checkImg(poster_path)}"
+      alt="${title}"
+    />
+      <button type="button" class="button-open-trailer"></button>
+    </div>
+  </div>
+  <div class="movie-description">
+    <h2 class="movie-title">${title}</h2>
+    <table class="movie-table">
+      <tbody>
+        <tr class="movie-table_row">
+          <td>
+            <p class="movie-table_title">Vote/Votes</p>
+          </td>
+          <td>
+            <p>
+              <span class= "movie-table_vote"> <span class= "movie-table_vote_aver"> ${vote_average.toFixed(
+    1
+  )} </span> / ${vote_count}</span>
+            </p>
+          </td>
+        </tr>
+        <tr class="movie-table_row">
+          <td>
+            <p class="movie-table_title">Popularity</p>
+          </td>
+          <td>
+            <p>${popularity}</p>
+          </td>
+        </tr>
+        <tr class="movie-table_row">
+          <td>
+            <p class="movie-table_title">Original Title</p>
+          </td>
+          <td>
+             <p class="movie-table_title_ori">${original_title}</p>
+          </td>
+        </tr>
+        <tr class="movie-table_row">
+          <td>
+            <p class="movie-table_title">Genre</p>
+          </td>
+          <td>
+            <p>${movieGenres}</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="movie-about_container">
+    <h3 class="movie-about">About</h3>
+    <p class="movie-about_text">${overview}</p>
+  </div>
+    <ul class="movie-list">
+            <li class="movie-item">
+        <button type="button" class="movie-item_button hover" data-id=${id} data-remove="wathced">Remove from watched</button>
+      </li>
+      <li class="movie-item">
+        <button type="button" class="movie-item_button hover" data-id=${id} data-remove="queue">Remove from queue</button>
+       </li>
+    </ul>
+  </div>
+</div>
+</div>`;
+  
   const instance = basicLightbox.create(markup, {
     onShow: instance => {
       refs.body.classList.add('no-scroll');
@@ -127,7 +207,26 @@ function renderModalFilms({
     },
   });
 
-  instance.show();
+  const instanceLib = basicLightbox.create(markupLibrary, {
+    onShow: instanceLib => {
+      refs.body.classList.add('no-scroll');
+      window.addEventListener('keydown', event => closeModalEscape(event));
+    },
+    onClose: instanceLib => {
+      document.querySelector('.modal-movie').style.overflowY = 'scroll';
+      refs.body.classList.remove('no-scroll');
+      window.removeEventListener('keydown', event => closeModalEscape(event));
+    },
+  });
+  
+
+ 
+  const active = document.querySelector('.nav-btn.active');
+  if (active.textContent === 'HOME') {
+    instance.show()
+  } else {
+    instanceLib.show()
+  }
 
   const buttonTreiler = document.querySelector('.button-open-trailer');
   buttonTreiler.addEventListener('click', clickTrailer);
@@ -197,6 +296,52 @@ export function addToQueue(event) {
     Notiflix.Report.success('Film added to QUEUE');
     localStorage.setItem('QueueFilms', JSON.stringify(parsedQueueFilms));
   }
+}
+
+
+function removeToWatched(event) {
+  const filmIdToLS = document.querySelector(`[data-remove="wathced"]`).dataset.id;
+
+  const parsedWathcedFilms = JSON.parse(localStorage.getItem('WatchedFilms'));
+  if (!parsedWathcedFilms) {
+    Notiflix.Report.failure('', 'The list of watched is empty');
+    return;
+  }
+
+  if (!parsedWathcedFilms.includes(filmIdToLS)) {
+    Notiflix.Report.failure('', 'There is no such movie in your watched list');
+    return;
+  }
+  if (parsedWathcedFilms.includes(filmIdToLS)) {
+    Notiflix.Report.success('', 'Movie is removed from watched');
+    localStorage.removeItem('WatchedFilms', JSON.stringify([filmIdToLS]));
+  }
+
+  parsedWathcedFilms.splice(parsedWathcedFilms.indexOf(filmIdToLS), 1);
+  Notiflix.Report.success('', 'Movie Del From WATCHED');
+  localStorage.setItem('WatchedFilms', JSON.stringify(parsedWathcedFilms));
+}
+
+function removeToQueue() {
+  const filmIdToLS = document.querySelector(`[data-remove="queue"]`).dataset.id;
+  const parsedQueueFilms = JSON.parse(localStorage.getItem('QueueFilms'));
+
+  if (!parsedQueueFilms) {
+    Notiflix.Report.failure('', 'The list of watched is empty');
+    return;
+  }
+
+  if (!parsedQueueFilms.includes(filmIdToLS)) {
+    Notiflix.Report.failure('', 'There is no such movie in your queue list');
+    return;
+  }
+  if (parsedQueueFilms.includes(filmIdToLS)) {
+    Notiflix.Report.success('', 'Movie is removed from queue');
+    localStorage.removeItem('QueueFilms', JSON.stringify([filmIdToLS]));
+  }
+  parsedQueueFilms.splice(parsedQueueFilms.indexOf(filmIdToLS), 1);
+  Notiflix.Report.success('', 'Movie DEL QUEUE');
+  localStorage.setItem('QueueFilms', JSON.stringify(parsedQueueFilms));
 }
 
 
