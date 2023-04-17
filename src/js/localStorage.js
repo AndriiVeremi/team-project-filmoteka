@@ -3,7 +3,6 @@ import APIservice from './fetch-API.js';
 import { renderMarkup } from './renderMarkup.js';
 
 const API = new APIservice();
-
 const refs = getRefs();
 
 const QUEUE_KEY = 'QueueFilms';
@@ -21,17 +20,12 @@ async function showWatched() {
     console.error(message);
   }
   const filmIdToLS = JSON.parse(localStorage.getItem(WATCHED_KEY));
-  console.log(filmIdToLS);
-
   try {
     const response = await API.getMoveTrending();
     refs.gallery.innerHTML = '';
-    console.log(response.data.results);
     const results = response.data.results;
     for (const id of filmIdToLS) {
-      console.log(id);
       const moveId = results.filter(item => item.id == id);
-      console.log(moveId);
       renderMarkup(moveId);
     }
   } catch (error) {
@@ -48,17 +42,12 @@ async function showQueue() {
     console.error(message);
   }
   const filmIdToLS = JSON.parse(localStorage.getItem(QUEUE_KEY));
-  console.log(filmIdToLS);
-
   try {
     const response = await API.getMoveTrending();
     refs.gallery.innerHTML = '';
-    console.log(response.data.results);
     const results = response.data.results;
     for (const id of filmIdToLS) {
-      console.log(id);
       const moveId = results.filter(item => item.id == id);
-      console.log(moveId);
       renderMarkup(moveId);
     }
   } catch (error) {
