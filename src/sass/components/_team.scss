@@ -1,11 +1,12 @@
 .modal-container {
+  position: relative;
   background-color: #fff;
 
-  border-radius: 20px;
+  border-radius: 5px;
   padding: 48px 20px 40px;
 
   scroll-behavior: smooth;
-  overflow-y: hidden;
+  overflow-y: scroll;
 
   @media screen and (max-width: 767px) {
     width: 85dvw;
@@ -13,6 +14,7 @@
   }
   @media screen and (min-width: $tablet) {
     width: 704px;
+    overflow-y: hidden;
   }
 
   @media screen and (min-width: $desktop) {
@@ -47,7 +49,7 @@
   display: block;
   width: 100%;
   height: 178px;
-  object-fit: cover;
+  object-fit: contain;
   transition: all 0.4s;
 }
 .team-image:hover {
@@ -97,3 +99,5 @@
     height: 24px;
   }
 }
+
+
