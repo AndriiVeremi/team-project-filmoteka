@@ -21,7 +21,7 @@ export async function popularMovies() {
     replaceIdtoGenre(arrGenre, arrGenreId);
     renderMarkup(results);
 
-    console.log(results);
+    // console.log(results);
     // console.log(arrGenreId);
   } catch (error) {
     console.log(error);
