@@ -112,17 +112,29 @@ const markup = `
 
 refs.projectTeam.addEventListener('click', openModal);
 
-const modal = basicLightbox.create(markup);
+// const modal = basicLightbox.create(markup);
 
-function openModal(e) {
+
+const modal = basicLightbox.create(markup, {
+  onShow: modal => {
+    refs.body.classList.add('no-scroll');
+    window.addEventListener('keydown', event => closeModalEscape(event));
+  },
+  onClose: modal => {
+    document.querySelector('.modal-movie').style.overflowY = 'scroll';
+    refs.body.classList.remove('no-scroll');
+    window.removeEventListener('keydown', event => closeModalEscape(event));
+  },
+});
+
+function openModal(event) {
   modal.show();
+}
 
-  window.addEventListener('keydown', closeModalHandler);
-
-  function closeModalHandler(e) {
-    if (e.code === 'Escape') {
-      modal.close();
-      window.removeEventListener('keydown', closeModalHandler);
-    }
+function closeModalEscape(event) {
+  if (event.key !== 'Escape') {
+    return;
   }
+  // modal.close();
+  closeModal();
 }

@@ -240,7 +240,8 @@ function renderModalFilms({
     if (event.key !== 'Escape') {
       return;
     }
-    closeModal();
+    // closeModal();
+    instance.close();
   }
 
 }
