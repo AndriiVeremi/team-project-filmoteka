@@ -219,8 +219,6 @@ function renderModalFilms({
     },
   });
   
-
- 
   const active = document.querySelector('.nav-btn.active');
   if (active.textContent === 'HOME') {
     instance.show()
@@ -240,8 +238,8 @@ function renderModalFilms({
     if (event.key !== 'Escape') {
       return;
     }
-    // closeModal();
-    instance.close();
+    closeModal();
+    
   }
 
 }
@@ -262,7 +260,6 @@ export function clickTrailer(event) {
     }
   });
 }
-
 
 export function addToWatched(event) {
 
@@ -300,7 +297,7 @@ export function addToQueue(event) {
 }
 
 
-function removeToWatched(event) {
+export function removeToWatched(event) {
   const filmIdToLS = document.querySelector(`[data-remove="wathced"]`).dataset.id;
 
   const parsedWathcedFilms = JSON.parse(localStorage.getItem('WatchedFilms'));
@@ -323,7 +320,7 @@ function removeToWatched(event) {
   localStorage.setItem('WatchedFilms', JSON.stringify(parsedWathcedFilms));
 }
 
-function removeToQueue() {
+export function removeToQueue() {
   const filmIdToLS = document.querySelector(`[data-remove="queue"]`).dataset.id;
   const parsedQueueFilms = JSON.parse(localStorage.getItem('QueueFilms'));
 
