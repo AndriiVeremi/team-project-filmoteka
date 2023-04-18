@@ -11,6 +11,7 @@ import photoOleksandra from '../images/team/oleksandra.png';
 import photoJaroslav from '../images/team/jaroslav.png';
 import photoOlia from '../images/team/olia.png';
 import photoKonstantyn from '../images/team/konstantyn.png';
+import photoNadiia from '../images/team/nadiia.png';
 import spriteUrl from '../images/btnUp.png';
 import svgUrl from '../images/icons.svg';
 
@@ -102,6 +103,17 @@ const markup = `
     <p class="team-name">Konstantyn</p>
     <p class="team-role">Developer</p>
     <a href="https://github.com/const604" target="_blank" class="team-git">
+    <svg class="logo-icon" width="24" height="24">
+      <use href="${svgUrl}#github"></use>
+    </svg></a>
+    </div>
+</div>
+<div class="team-card">
+    <img src="${photoNadiia}" alt="Konstantyn" class="team-image">
+     <div class = 'team-info'>
+    <p class="team-name">Konstantyn</p>
+    <p class="team-role">Developer</p>
+    <a href="https://github.com/tizzifona" target="_blank" class="team-git">
     <svg class="logo-icon" width="24" height="24">
       <use href="${svgUrl}#github"></use>
     </svg></a>
