@@ -33,6 +33,7 @@ async function clickMove(event) {
     queueRemove.addEventListener('click', removeToQueue);
   }
 
+  
 }
 
 refs.gallery.addEventListener('click', clickMove);
