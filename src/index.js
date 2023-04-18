@@ -11,6 +11,7 @@ import './js/renderTeam.js';
 import './js/modalFilms.js';
 import './js/localStorage.js';
 import './js/library.js';
+import './js/modal-registr.js';
 // import './js/modalFilms.js';
 
 

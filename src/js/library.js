@@ -19,6 +19,44 @@ refs.watchedBtn.style.display = 'none'
 
 libraryBtnRef.addEventListener('click', openLib);
 
+const registerBtn = document.querySelector('#register-btn');
+const registerModal = document.querySelector('#register-modal');
+const registerForm = document.querySelector('#register-form');
+
+// Открываем модальное окно при нажатии на кнопку
+registerBtn.addEventListener('click', () => {
+  registerModal.style.display = 'block';
+});
+
+// Закрываем модальное окно при нажатии на крестик или за его пределами
+registerModal.addEventListener('click', (e) => {
+  if (e.target == registerModal || e.target.classList.contains('close')) {
+    registerModal.style.display = 'none';
+  }
+});
+
+// Обрабатываем отправку формы
+registerForm.addEventListener('submit', (e) => {
+  e.preventDefault(); // Отменяем стандартное поведение формы
+  
+  // Собираем данные из полей формы
+  const userData = {
+    username: document.querySelector('#username').value,
+    email: document.querySelector('#email').value,
+    password: document.querySelector('#password').value
+  };
+  
+  // Вместо отправки на сервер можно здесь обработать данные формы
+  console.log(userData);
+  alert('Вы успешно зарегистрировались!');
+  
+  // Закрываем модальное окно
+  registerModal.style.display = 'none';
+
+});
+
+
+
 async function openLib() {
     refs.gallery.innerHTML = ''
     refs.queueBtn.style.display = 'inline-flex'
@@ -69,9 +107,5 @@ function goToHomePage(){
     // refs.queueBtn.style.display = 'none'
     // refs.watchedBtn.style.display = 'none'
     // searchFormRef.style.display = 'inline-block'
-    location. reload()
+    location. reload();}
     
-}
-
-
-
