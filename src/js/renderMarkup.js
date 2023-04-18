@@ -24,7 +24,7 @@ export function renderMarkup(results) {
     .join('');
   refs.gallery.insertAdjacentHTML('beforeend', markup);
 }
-
+ 
 
 
 // Перевірка дати виходу фільма
