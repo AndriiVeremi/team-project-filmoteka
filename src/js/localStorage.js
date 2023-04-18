@@ -2,6 +2,7 @@ import getRefs from './refs.js';
 import APIservice from './fetch-API.js';
 import { renderMarkup } from './renderMarkup.js';
 import { instance } from './pagination.js';
+import { replaceIdtoGenre } from './popularMovies.js';
 
 const API = new APIservice();
 const refs = getRefs();
@@ -25,10 +26,17 @@ async function showWatched() {
     const response = await API.getMoveTrending();
     refs.gallery.innerHTML = '';
     const results = response.data.results;
+
+    const arrGenreId = results.map(item => item.genre_ids);
+    const genreResponse = await API.getMoveGanres();
+    const arrGenre = genreResponse.data.genres;
+
     for (const id of filmIdToLS) {
       const moveId = results.filter(item => item.id == id);
       instance.setTotalItems(WATCHED_KEY);
       instance.reset();
+
+      replaceIdtoGenre(arrGenre, arrGenreId);
       renderMarkup(moveId);
     }
   } catch (error) {
@@ -49,10 +57,18 @@ async function showQueue() {
     const response = await API.getMoveTrending();
     refs.gallery.innerHTML = '';
     const results = response.data.results;
+
+    const arrGenreId = results.map(item => item.genre_ids);
+    const genreResponse = await API.getMoveGanres();
+    const arrGenre = genreResponse.data.genres;
+    replaceIdtoGenre(arrGenre, arrGenreId);
+
     for (const id of filmIdToLS) {
       const moveId = results.filter(item => item.id == id);
       instance.setTotalItems(QUEUE_KEY);
       instance.reset();
+
+      replaceIdtoGenre(arrGenre, arrGenreId);
       renderMarkup(moveId);
     }
   } catch (error) {
