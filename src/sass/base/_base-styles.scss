@@ -2,6 +2,10 @@ body {
  //
 }
 
+body.dark_mode {
+  background-color: black;
+}
+
 img {
   display: block;
   height: 100%;
