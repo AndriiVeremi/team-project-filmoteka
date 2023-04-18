@@ -23,6 +23,7 @@ async function onSearch(e) {
     client.resetPage();
     client.query = searchQuery;
     fetchMoviesSearchQuery();
+    instance.reset();
     clearInput();
 }
 
@@ -49,7 +50,6 @@ export async function fetchMoviesSearchQuery() {
     lastSearchFilmPage.textContent = resp.data.total_pages;
 
     instance.setTotalItems(resp.data.total_results);
-    instance.reset();
 
     replaceIdtoGenre(arrGenre, arrGenreId);
     renderMarkup(results);
