@@ -25,6 +25,8 @@ export function renderMarkup(results) {
   refs.gallery.insertAdjacentHTML('beforeend', markup);
 }
 
+
+
 // Перевірка дати виходу фільма
 const dateRelease = value =>
   `${!value ? 'Unknown year' : `${value.slice(0, 4)}`}`;
