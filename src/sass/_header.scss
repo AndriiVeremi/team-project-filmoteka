@@ -367,7 +367,13 @@ background-image:
     margin-right: 10px;
     display: flex;
     justify-content: flex-end;
+    @media screen and (min-width: 768px) {
+            margin-bottom: 20px;
+        }
     
+        @media screen and (min-width: 1200px) {
+            margin-bottom: 40px;
+        }
 }
 
 .change_theme--btn {
@@ -375,6 +381,9 @@ background-image:
     align-items: center;
     justify-content: center;
     background-color: white;
-    width: 40px; 
+    width: 30px; 
     border-radius:50%;   
+    @media screen and (min-width: 768px) {
+            width: 40px;
+        }
 }
