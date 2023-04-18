@@ -19,14 +19,12 @@ async function clickMove(event) {
   }
 
   const active = document.querySelector('.nav-btn.active');
-  if (active.textContent === 'HOME') {
-    // instance.show()
+  if (active.textContent === 'HOME') { 
     const wathcedAdd = document.querySelector(`[data-add="wathced"]`);
     const queueAdd = document.querySelector(`[data-add="queue"]`);
     wathcedAdd.addEventListener('click', addToWatched);
     queueAdd.addEventListener('click', addToQueue);
   } else {
-    // instanceLib.show()
     const wathcedRemove = document.querySelector(`[data-remove="wathced"]`);
     const queueRemove = document.querySelector(`[data-remove="queue"]`);
     wathcedRemove.addEventListener('click', removeToWatched);
@@ -241,17 +239,14 @@ function renderModalFilms({
 
   function closeModal(event) {
     instance.close();
-
   }
 
   function closeModalEscape(event) {
     if (event.key !== 'Escape') {
       return;
     }
-    closeModal();
-    
+    closeModal();    
   }
-
 }
 
 export function clickTrailer(event) {
@@ -272,14 +267,15 @@ export function clickTrailer(event) {
 }
 
 export function addToWatched(event) {
-
   const filmIdToLS = document.querySelector(`[data-add="wathced"]`).dataset.id;
   const parsedWathcedFilms = JSON.parse(localStorage.getItem('WatchedFilms'));
-
   if (parsedWathcedFilms === null) {
     Notiflix.Report.success('Film added to WATCHED');
     localStorage.setItem('WatchedFilms', JSON.stringify([filmIdToLS]));
   } else if (parsedWathcedFilms.includes(filmIdToLS)) {
+    Notiflix.Report.failure('The movie been added to the list!');
+    return;
+  } else if (JSON.parse(localStorage.getItem('QueueFilms')).includes(filmIdToLS)) {
     Notiflix.Report.failure('The movie been added to the list!');
     return;
   } else {
@@ -290,22 +286,22 @@ export function addToWatched(event) {
 }
 
 export function addToQueue(event) {
-
   const filmIdToLS = document.querySelector(`[data-add="queue"]`).dataset.id;
   const parsedQueueFilms = JSON.parse(localStorage.getItem('QueueFilms'));
-
   if (parsedQueueFilms === null) {
     Notiflix.Report.success('Film added to QUE');
     localStorage.setItem('QueueFilms', JSON.stringify([filmIdToLS]));
   } else if (parsedQueueFilms.includes(filmIdToLS)) {
     return Notiflix.Report.failure('The movie been added to the queue!');
+  } else if (JSON.parse(localStorage.getItem('WatchedFilms')).includes(filmIdToLS)) {
+    Notiflix.Report.failure('The movie been added to the list!');
+    return;
   } else {
     parsedQueueFilms.push(filmIdToLS);
     Notiflix.Report.success('Film added to QUEUE');
     localStorage.setItem('QueueFilms', JSON.stringify(parsedQueueFilms));
   }
 }
-
 
 export function removeToWatched(event) {
   const filmIdToLS = document.querySelector(`[data-remove="wathced"]`).dataset.id;
