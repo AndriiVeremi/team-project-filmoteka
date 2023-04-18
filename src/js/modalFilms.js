@@ -272,14 +272,15 @@ export function clickTrailer(event) {
 }
 
 export function addToWatched(event) {
-
   const filmIdToLS = document.querySelector(`[data-add="wathced"]`).dataset.id;
   const parsedWathcedFilms = JSON.parse(localStorage.getItem('WatchedFilms'));
-
   if (parsedWathcedFilms === null) {
     Notiflix.Report.success('Film added to WATCHED');
     localStorage.setItem('WatchedFilms', JSON.stringify([filmIdToLS]));
   } else if (parsedWathcedFilms.includes(filmIdToLS)) {
+    Notiflix.Report.failure('The movie been added to the list!');
+    return;
+  } else if (JSON.parse(localStorage.getItem('QueueFilms')).includes(filmIdToLS)) {
     Notiflix.Report.failure('The movie been added to the list!');
     return;
   } else {
@@ -290,22 +291,22 @@ export function addToWatched(event) {
 }
 
 export function addToQueue(event) {
-
   const filmIdToLS = document.querySelector(`[data-add="queue"]`).dataset.id;
   const parsedQueueFilms = JSON.parse(localStorage.getItem('QueueFilms'));
-
   if (parsedQueueFilms === null) {
     Notiflix.Report.success('Film added to QUE');
     localStorage.setItem('QueueFilms', JSON.stringify([filmIdToLS]));
   } else if (parsedQueueFilms.includes(filmIdToLS)) {
     return Notiflix.Report.failure('The movie been added to the queue!');
+  } else if (JSON.parse(localStorage.getItem('WatchedFilms')).includes(filmIdToLS)) {
+    Notiflix.Report.failure('The movie been added to the list!');
+    return;
   } else {
     parsedQueueFilms.push(filmIdToLS);
     Notiflix.Report.success('Film added to QUEUE');
     localStorage.setItem('QueueFilms', JSON.stringify(parsedQueueFilms));
   }
 }
-
 
 export function removeToWatched(event) {
   const filmIdToLS = document.querySelector(`[data-remove="wathced"]`).dataset.id;
