@@ -28,6 +28,13 @@ body.no-scroll {
   }
 }
 
+.dark_mode .modal-movie {
+  background-color: black;
+-webkit-box-shadow: 0px 0px 20px -1px rgba(255, 255, 255, 0.94);
+  -moz-box-shadow: 0px 0px 20px -1px rgba(255, 255, 255, 0.94);
+  box-shadow: 0px 0px 20px -1px rgba(255, 255, 255, 0.94);
+}
+
 .button-close {
   position: absolute;
   top: 8px;
@@ -39,8 +46,12 @@ body.no-scroll {
   height: 30px;
   padding: 0;
   background-color: transparent;
-
   transition: color 250ms $cubic;
+}
+
+.dark_mode .button-close {
+  background-color: #fff;
+  border-radius: 50%;
 }
 
 .icon-close {
@@ -83,7 +94,6 @@ body.no-scroll {
   @media screen and (min-width: $mobile) and (max-width: 767px) {
     width: 240px;
     // height: 357px;
-
     margin-bottom: 20px;
   }
 
@@ -96,6 +106,12 @@ body.no-scroll {
     width: 375px;
     // height: 478px;
   }
+}
+
+.dark_mode .movie-card_photo {
+      -webkit-box-shadow: 0px 0px 10px -1px rgba(255, 255, 255, 0.94);
+      -moz-box-shadow: 0px 0px 10px -1px rgba(255, 255, 255, 0.94);
+      box-shadow: 0px 0px 10px -1px rgba(255, 255, 255, 0.94);
 }
 
 .button-open-trailer {
@@ -158,6 +174,10 @@ body.no-scroll {
   }
 }
 
+.dark_mode .movie-description {
+  color: #fff;
+}
+
 .movie-title {
   font-weight: 500;
   font-size: 20px;
@@ -203,7 +223,6 @@ body.no-scroll {
   padding-left: 4px;
   background-color: $accent-text-cl;
   color: #fff;
-
   border-radius: 4px;
 }
 .movie-table_title_ori {
@@ -319,6 +338,10 @@ body.no-scroll {
     padding: 14px 32px;
     height: 42px;
   }
+}
+
+.dark_mode .movie-item_button {
+  border: 2px solid $accent-text;
 }
 .hover {
   margin-top: 15px;
