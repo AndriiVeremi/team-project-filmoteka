@@ -61,6 +61,7 @@ async function showQueue() {
     const arrGenreId = results.map(item => item.genre_ids);
     const genreResponse = await API.getMoveGanres();
     const arrGenre = genreResponse.data.genres;
+    replaceIdtoGenre(arrGenre, arrGenreId);
 
     for (const id of filmIdToLS) {
       const moveId = results.filter(item => item.id == id);
