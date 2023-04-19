@@ -119,7 +119,7 @@ function renderModalFilms({
         <button type="button" class="movie-item_button" data-id=${id} data-add="queue">Add to queue</button>
        </li>
     </ul>
-    <button class="button-close" type="button" data-add = close>
+    <button class="button-close" type="button" data-add=close>
     <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none">
     <path stroke="#000" stroke-width="2" d="m8 8 14 14M8 22 22 8"/>
   </svg>
@@ -194,7 +194,7 @@ function renderModalFilms({
         <button type="button" class="movie-item_button hover" data-id=${id} data-remove="queue">Remove from queue</button>
        </li>
     </ul>
-     <button class="button-close" type="button" data-add = close>
+     <button class="button-close" type="button" data-add=close>
     <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none">
     <path stroke="#000" stroke-width="2" d="m8 8 14 14M8 22 22 8"/>
   </svg>
@@ -232,8 +232,6 @@ function renderModalFilms({
   const active = document.querySelector('.nav-btn.active');
   if (active.textContent === 'HOME') {
     instance.show()
-    window.addEventListener('click', closeModalHandler)
-
   } else {
     instanceLib.show()
   }
