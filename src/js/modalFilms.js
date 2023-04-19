@@ -221,13 +221,12 @@ function renderModalFilms({
       window.addEventListener('click', event => closeModal(event));
     },
     onClose: instanceLib => {
-     
       refs.body.classList.remove('no-scroll');
       window.removeEventListener('keydown', event => closeModal(event));
       window.removeEventListener('click', event => closeModal(event));
     },
   });
-  
+  //a
   const active = document.querySelector('.nav-btn.active');
   if (active.textContent === 'HOME') {
     instance.show()
