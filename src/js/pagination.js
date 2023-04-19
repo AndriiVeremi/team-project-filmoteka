@@ -37,3 +37,8 @@ instance.on('beforeMove', event => {
     fetchMoviesSearchQuery();
   }
 });
+
+const searchForm = document.querySelector('.search-form');
+searchForm.addEventListener('submit', () => {
+  instance.reset();
+});
