@@ -45,6 +45,7 @@ body.no-scroll {
   width: 30px;
   height: 30px;
   padding: 0;
+  border-radius: 50%;
   background-color: transparent;
   transition: color 250ms $cubic;
 }
@@ -60,7 +61,12 @@ body.no-scroll {
 
 .button-close:hover .icon-close,
 .button-close:focus .icon-close {
-  stroke: $accent-text;
+  background-color: $accent-text;
+  stroke: white;
+  border-radius: 50%;
+}
+.button-close:active .icon-close {
+  stroke: black;
 }
 
 .movie-card {
