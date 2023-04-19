@@ -207,6 +207,7 @@ function renderModalFilms({
     onShow: instance => {
       refs.body.classList.add('no-scroll');
       window.addEventListener('keydown', event => closeModalEscape(event));
+      window.addEventListener('click', event => closeModalEscape(event));
     },
     onClose: instance => {
       document.querySelector('.modal-movie').style.overflowY = 'scroll';
@@ -219,6 +220,7 @@ function renderModalFilms({
     onShow: instanceLib => {
       refs.body.classList.add('no-scroll');
       window.addEventListener('keydown', event => closeModalEscape(event));
+      window.addEventListener('click', event => closeModalEscape(event));
     },
     onClose: instanceLib => {
       document.querySelector('.modal-movie').style.overflowY = 'scroll';
@@ -230,6 +232,8 @@ function renderModalFilms({
   const active = document.querySelector('.nav-btn.active');
   if (active.textContent === 'HOME') {
     instance.show()
+    window.addEventListener('click', closeModalHandler)
+
   } else {
     instanceLib.show()
   }
@@ -239,13 +243,21 @@ function renderModalFilms({
 
   function closeModal(event) {
     instance.close();
+
   }
 
   function closeModalEscape(event) {
-    if (event.key !== 'Escape') {
-      return;
+    
+    if (event.code === 'Escape') {
+      closeModal(); 
+      return
     }
-    closeModal();    
+
+    if (event.target.closest('.button-close')) {
+      closeModal();
+      return
+    }
+      
   }
 }
 
