@@ -19,7 +19,7 @@ async function clickMove(event) {
   }
 
   const active = document.querySelector('.nav-btn.active');
-  if (active.textContent === 'HOME') { 
+  if (active.textContent === 'HOME') {
     const wathcedAdd = document.querySelector(`[data-add="wathced"]`);
     const queueAdd = document.querySelector(`[data-add="queue"]`);
     wathcedAdd.addEventListener('click', addToWatched);
@@ -126,7 +126,7 @@ function renderModalFilms({
   </div>
 </div>
 </div>`;
-  
+
   const markupLibrary = `<div class="modal-movie" id="modal_movie">
   <div class="movie-card">
   <div class="movie-card_request">
@@ -200,33 +200,35 @@ function renderModalFilms({
   </div>
 </div>
 </div>`;
-  
+
   const instance = basicLightbox.create(markup, {
     onShow: instance => {
       refs.body.classList.add('no-scroll');
-      window.addEventListener('keydown', event => closeModal(event));
-      window.addEventListener('click', event => closeModal(event));
+      window.addEventListener('keydown', event => closeModalEscape(event));
+      window.addEventListener('click', closeModalClick);
     },
     onClose: instance => {
       refs.body.classList.remove('no-scroll');
-      window.removeEventListener('keydown', event => closeModal(event));
-      window.removeEventListener('click', event => closeModal(event));
+      window.removeEventListener('keydown', event => closeModalEscape(event));
+      window.removeEventListener('click', closeModalClick);
     },
   });
 
   const instanceLib = basicLightbox.create(markupLibrary, {
     onShow: instanceLib => {
       refs.body.classList.add('no-scroll');
-      window.addEventListener('keydown', event => closeModal(event));
-      window.addEventListener('click', event => closeModal(event));
+      window.addEventListener('keydown', event => closeModalEscape(event));
+      window.addEventListener('click', closeModalLibClick);
     },
     onClose: instanceLib => {
       refs.body.classList.remove('no-scroll');
-      window.removeEventListener('keydown', event => closeModal(event));
-      window.removeEventListener('click', event => closeModal(event));
+      window.removeEventListener('keydown', event => closeModalEscape(event));
+      window.removeEventListener('click', closeModalLibClick);
     },
   });
-  //a
+
+  document.body.addEventListener('click', closeModalClick);
+
   const active = document.querySelector('.nav-btn.active');
   if (active.textContent === 'HOME') {
     instance.show()
@@ -237,15 +239,31 @@ function renderModalFilms({
   const buttonTreiler = document.querySelector('.button-open-trailer');
   buttonTreiler.addEventListener('click', clickTrailer);
 
-  function closeModal(event) {
-    if (event.code === 'Escape') { 
-      instance.close();
+  function closeModal() {
+    instance.close();
+  }
+  function closeModalLib() {
+    instanceLib.close();
+  }
+
+  function closeModalEscape(event) {
+    if (event.key !== 'Escape') {
       return;
     }
-    if (event.target.closest('.button-close')) {
-      instance.close();
-      return;
-    }     
+    closeModal();
+  }
+
+  function closeModalClick(event) {
+    const target = event.target.closest("#modal_movie .button-close");
+    if (target) {
+      closeModal();
+    }
+  }
+  function closeModalLibClick(event) {
+    const target = event.target.closest("#modal_movie .button-close");
+    if (target) {
+      closeModalLib();
+    }
   }
 }
 
