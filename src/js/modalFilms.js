@@ -213,6 +213,7 @@ function renderModalFilms({
       document.querySelector('.modal-movie').style.overflowY = 'scroll';
       refs.body.classList.remove('no-scroll');
       window.removeEventListener('keydown', event => closeModalEscape(event));
+      window.removeEventListener('click', event => closeModalEscape(event));
     },
   });
 
@@ -226,7 +227,7 @@ function renderModalFilms({
       document.querySelector('.modal-movie').style.overflowY = 'scroll';
       refs.body.classList.remove('no-scroll');
       window.removeEventListener('keydown', event => closeModalEscape(event));
-      window.addEventListener('click', event => closeModalEscape(event));
+      window.removeEventListener('click', event => closeModalEscape(event));
     },
   });
   
@@ -242,7 +243,6 @@ function renderModalFilms({
 
   function closeModal(event) {
     instance.close();
-
   }
 
   function closeModalEscape(event) {
@@ -255,8 +255,7 @@ function renderModalFilms({
     if (event.target.closest('.button-close')) {
       closeModal();
       return
-    }
-      
+    }     
   }
 }
 
