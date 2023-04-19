@@ -30,7 +30,6 @@ async function clickMove(event) {
     wathcedRemove.addEventListener('click', removeToWatched);
     queueRemove.addEventListener('click', removeToQueue);
   }
-
 }
 
 refs.gallery.addEventListener('click', clickMove);
@@ -150,9 +149,8 @@ function renderModalFilms({
           </td>
           <td>
             <p>
-              <span class= "movie-table_vote"> <span class= "movie-table_vote_aver"> ${vote_average.toFixed(
-    1
-  )} </span> / ${vote_count}</span>
+              <span class= "movie-table_vote"><span class= "movie-table_vote_aver">
+              ${vote_average.toFixed(1)} </span> / ${vote_count}</span>
             </p>
           </td>
         </tr>
@@ -206,28 +204,28 @@ function renderModalFilms({
   const instance = basicLightbox.create(markup, {
     onShow: instance => {
       refs.body.classList.add('no-scroll');
-      window.addEventListener('keydown', event => closeModalEscape(event));
-      window.addEventListener('click', event => closeModalEscape(event));
+      window.addEventListener('keydown', event => closeModal(event));
+      window.addEventListener('click', event => closeModal(event));
     },
     onClose: instance => {
       document.querySelector('.modal-movie').style.overflowY = 'scroll';
       refs.body.classList.remove('no-scroll');
-      window.removeEventListener('keydown', event => closeModalEscape(event));
-      window.removeEventListener('click', event => closeModalEscape(event));
+      window.removeEventListener('keydown', event => closeModal(event));
+      window.removeEventListener('click', event => closeModal(event));
     },
   });
 
   const instanceLib = basicLightbox.create(markupLibrary, {
     onShow: instanceLib => {
       refs.body.classList.add('no-scroll');
-      window.addEventListener('keydown', event => closeModalEscape(event));
-      window.addEventListener('click', event => closeModalEscape(event));
+      window.addEventListener('keydown', event => closeModal(event));
+      window.addEventListener('click', event => closeModal(event));
     },
     onClose: instanceLib => {
       document.querySelector('.modal-movie').style.overflowY = 'scroll';
       refs.body.classList.remove('no-scroll');
-      window.removeEventListener('keydown', event => closeModalEscape(event));
-      window.removeEventListener('click', event => closeModalEscape(event));
+      window.removeEventListener('keydown', event => closeModal(event));
+      window.removeEventListener('click', event => closeModal(event));
     },
   });
   
@@ -242,18 +240,12 @@ function renderModalFilms({
   buttonTreiler.addEventListener('click', clickTrailer);
 
   function closeModal(event) {
-    instance.close();
-  }
-
-  function closeModalEscape(event) {
-    
-    if (event.code === 'Escape') {
-      closeModal(); 
+    if (event.code === 'Escape') { 
+      instance.close();
       return
     }
-
     if (event.target.closest('.button-close')) {
-      closeModal();
+      instance.close();
       return
     }     
   }
