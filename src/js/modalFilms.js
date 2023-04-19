@@ -208,7 +208,6 @@ function renderModalFilms({
       window.addEventListener('click', event => closeModal(event));
     },
     onClose: instance => {
-      document.querySelector('.modal-movie').style.overflowY = 'scroll';
       refs.body.classList.remove('no-scroll');
       window.removeEventListener('keydown', event => closeModal(event));
       window.removeEventListener('click', event => closeModal(event));
@@ -222,7 +221,7 @@ function renderModalFilms({
       window.addEventListener('click', event => closeModal(event));
     },
     onClose: instanceLib => {
-      document.querySelector('.modal-movie').style.overflowY = 'scroll';
+     
       refs.body.classList.remove('no-scroll');
       window.removeEventListener('keydown', event => closeModal(event));
       window.removeEventListener('click', event => closeModal(event));
