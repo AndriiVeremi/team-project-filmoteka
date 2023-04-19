@@ -67,7 +67,6 @@
 .gallery-title {
   text-transform: uppercase;
   color: rgba(0, 0, 0, 1);
-  font-weight: 500;
   font-size: 12px;
   line-height: 1.17;
   margin-bottom: 4px;
@@ -83,7 +82,6 @@
 
 .gallery-text {
   color: rgba(185, 47, 44, 1);
-  font-weight: 500;
   font-size: 12px;
   line-height: 1.17;
   margin-bottom: 4px;
@@ -100,6 +98,13 @@
 // .gallery {
 //   flex-wrap: wrap;
 //   display: flex;
+//   // gap: 16px 32px;
+
+//   // display: flex;
+//   // flex-wrap: wrap;
+//   // flex-direction: column;
+//   // align-items: center;
+//   // margin-left: -20px;
 
 //   @media screen and (min-width: 768px) and (max-width: 1279px) {
 //     flex-direction: row;
