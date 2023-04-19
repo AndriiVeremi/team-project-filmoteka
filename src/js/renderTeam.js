@@ -131,7 +131,6 @@ const markup = `
 </div>`;
 
 refs.projectTeam.addEventListener('click', openModal);
-// const closeMod = document.querySelector('')
 
 const modal = basicLightbox.create(markup, {
   onShow: modal => {
