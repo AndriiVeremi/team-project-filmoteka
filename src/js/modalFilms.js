@@ -226,6 +226,7 @@ function renderModalFilms({
       document.querySelector('.modal-movie').style.overflowY = 'scroll';
       refs.body.classList.remove('no-scroll');
       window.removeEventListener('keydown', event => closeModalEscape(event));
+      window.addEventListener('click', event => closeModalEscape(event));
     },
   });
   
