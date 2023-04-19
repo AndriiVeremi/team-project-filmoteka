@@ -32,6 +32,7 @@ async function openLib() {
     if (localStorage.getItem(WATCHED_KEY) === null) {
       // refs.gallery.innerHTML = ''
       const message = document.createElement('p')
+      message.classList.add('bgImageLid')
       message.textContent = "You haven't added movies yet. Please make your choise first";
       message.style.display = 'block'
        message.style.textAlign = 'center'
