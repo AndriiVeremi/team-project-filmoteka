@@ -1,2 +1,2 @@
 
-<img src="https://andriiveremi.github.io/Andrii-Veremii-resume/img/project.jpg" alt="Team Foto">
+<img src="<img src="https://photos.app.goo.gl/CsX92YdskLTLQJiJ8" alt="Team Foto">" alt="Team Foto">
