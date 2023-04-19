@@ -23,12 +23,14 @@ const markup = `
 <div class="team-card">
     <img src="${photoAndrii}" alt="Andrii" class="team-image">
     <div class = 'team-info'>
-    <p class="team-name">Andrii</p>
-    <p class="team-role">Team Lead</p>
     <a href="https://github.com/ZubkoA" target="_blank" class="team-git">
     <svg class="logo-icon" width="24" height="24">
       <use href="${svgUrl}#github"></use>
     </a>
+   
+    <p class="team-name">Andrii</p>
+    <p class="team-role">Team Lead</p>
+   
     </div>
 </div>
 <div class="team-card">
@@ -109,9 +111,9 @@ const markup = `
     </div>
 </div>
 <div class="team-card">
-    <img src="${photoNadiia}" alt="Konstantyn" class="team-image">
+    <img src="${photoNadiia}" alt="Nadiia" class="team-image">
      <div class = 'team-info'>
-    <p class="team-name">Konstantyn</p>
+    <p class="team-name">Nadiia</p>
     <p class="team-role">Developer</p>
     <a href="https://github.com/tizzifona" target="_blank" class="team-git">
     <svg class="logo-icon" width="24" height="24">
@@ -119,6 +121,7 @@ const markup = `
     </svg></a>
     </div>
 </div>
+
 </div>
 <button class="button-close" type="button" data-add = close>
     <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none">
@@ -127,13 +130,11 @@ const markup = `
         </button>
 </div>`;
 
-
 refs.projectTeam.addEventListener('click', openModal);
 
 const modal = basicLightbox.create(markup, {
   onShow: modal => {
     refs.body.classList.add('no-scroll');
-    
   },
   onClose: modal => {
     document.querySelector('.modal-container').style.overflowY = 'scroll';
