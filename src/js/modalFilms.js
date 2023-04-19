@@ -242,11 +242,11 @@ function renderModalFilms({
   function closeModal(event) {
     if (event.code === 'Escape') { 
       instance.close();
-      return
+      return;
     }
     if (event.target.closest('.button-close')) {
       instance.close();
-      return
+      return;
     }     
   }
 }
