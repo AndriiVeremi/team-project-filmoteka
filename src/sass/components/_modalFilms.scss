@@ -87,8 +87,7 @@ body.no-scroll {
 .movie-card_request {
   display: flex;
   justify-content: center;
-  // align-items: center;
-  
+  align-items: center;
 }
 
 .movie-card_img-cover {
@@ -99,21 +98,18 @@ body.no-scroll {
   display: flex;
   border-radius: 4px;
   @media screen and (min-width: $mobile) and (max-width: 767px) {
-    width:100%;
-    // width: 240px;
+    width: 240px;
     // height: 357px;
     margin-bottom: 20px;
   }
 
   @media screen and (min-width: $tablet) and (max-width: 1279px) {
-    width:100%;
-    // width: 264px;
+    width: 264px;
     // height: 374px;
   }
 
   @media screen and (min-width: $desktop) {
-    width:100%;
-    // width: 375px;
+    width: 375px;
     // height: 478px;
   }
 }
