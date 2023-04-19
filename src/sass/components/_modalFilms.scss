@@ -205,6 +205,10 @@ body.no-scroll {
   }
 }
 
+.movie-table p {
+  margin-bottom: 8px;
+}
+
 .movie-table_row {
   border-right: 41px solid transparent;
 
@@ -219,6 +223,7 @@ body.no-scroll {
   line-height: 1.33;
   color: $modal-text-cl;
 }
+
 .movie-table_vote_aver {
   padding-left: 4px;
   background-color: $accent-text-cl;
@@ -257,7 +262,7 @@ body.no-scroll {
   text-transform: uppercase;
   line-height: 1.33;
   margin-bottom: 8px;
-  margin-top: 20px;
+  margin-top: 12px;
 }
 
 .movie-about_text {
