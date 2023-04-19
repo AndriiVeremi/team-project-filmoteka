@@ -3,15 +3,15 @@ import 'basiclightbox/dist/basicLightbox.min.css';
 
 import getRefs from './refs.js';
 
-import photoAndrii from '../images/team/andrii.png';
-import photoAlla from '../images/team/alla.png';
-import photoIvan from '../images/team/Ivan.png';
-import photoIryna from '../images/team/iryna.png';
-import photoOleksandra from '../images/team/oleksandra.png';
-import photoJaroslav from '../images/team/jaroslav.png';
-import photoOlia from '../images/team/olia.png';
-import photoKonstantyn from '../images/team/konstantyn.png';
-import photoNadiia from '../images/team/nadiia.png';
+import photoAndrii from '../images/team/andrii.jpg';
+import photoAlla from '../images/team/alla.jpg';
+import photoIvan from '../images/team/Ivan.jpg';
+import photoIryna from '../images/team/iryna.jpg';
+import photoOleksandra from '../images/team/oleksandra.jpg';
+import photoJaroslav from '../images/team/jaroslav.jpg';
+import photoOlia from '../images/team/olia.jpg';
+import photoKonstantyn from '../images/team/konstantyn.jpg';
+import photoNadiia from '../images/team/nadiia.jpg';
 import spriteUrl from '../images/btnUp.png';
 import svgUrl from '../images/icons.svg';
 
