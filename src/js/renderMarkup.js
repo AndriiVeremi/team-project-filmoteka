@@ -8,7 +8,7 @@ export function renderMarkup(results) {
       return `<li class="gallery-item" data-id="${id}">
     <a href="${checkedImg(poster_path)}" class="gallery-link">
       <div class="gallery-card">
-        <img class="gallery-photo" src="${checkedImg(poster_path)}" alt="${title}" loading="lazy" />
+        <img class="gallery-photo" src="${checkedImg(poster_path)}" width="395" height="592" alt="${title}" loading="lazy" />
       </div>
       <div class="gallery-info">
         <h2 class="gallery-title">${title}</h2>

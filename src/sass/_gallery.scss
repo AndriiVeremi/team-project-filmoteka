@@ -12,6 +12,7 @@
   background-color: black;
 }
 .gallery {
+  justify-items: center;
   display: grid;
   grid-template-columns: 1fr;
   row-gap: 20px;
@@ -26,6 +27,7 @@
 }
 
 .gallery-card {
+  min-width: 280px;
   // height: 402px;
   margin-bottom: 10px;
   border-radius: 5px;
