@@ -3,21 +3,33 @@ import { renderModalFilms } from './modalFilms.js';
 
 const API = new APIservice();
 
-const swiperContent = document.querySelector('.swiper-wrapper');
-swiperContent.addEventListener('click', openFilm)
-
 export async function openFilm(event) {
-
+    event.preventDefault();
+    const moveId = event.target.closest('.swiper-slide').dataset.id;
     try {
-        event.preventDefault();
-        const moveId = event.target.closest('.swiper-slide').dataset.id;
         const response = await API.getMoveInfo(moveId)
         const data = response.data;
         renderModalFilms(data);
     } catch (error) {
         console.log(error);
     }
+
+    // const active = document.querySelector('.nav-btn.active');
+    // if (active.textContent === 'HOME') {
+    //     const wathcedAdd = document.querySelector(`[data-add="wathced"]`);
+    //     const queueAdd = document.querySelector(`[data-add="queue"]`);
+    //     wathcedAdd.addEventListener('click', addToWatched);
+    //     queueAdd.addEventListener('click', addToQueue);
+    // } else {
+    //     const wathcedRemove = document.querySelector(`[data-remove="wathced"]`);
+    //     const queueRemove = document.querySelector(`[data-remove="queue"]`);
+    //     wathcedRemove.addEventListener('click', removeToWatched);
+    //     queueRemove.addEventListener('click', removeToQueue);
+    // }
 }
+
+const swiperContent = document.querySelector('.swiper-wrapper');
+swiperContent.addEventListener('click', openFilm)
 
 swipeMove();
 
@@ -44,12 +56,10 @@ function renderSwipe(results) {
       </div>
     </a>
     </div>`}).join('');
-    swiperContent.insertAdjacentHTML('beforeend', markupSwiper);
 
+    swiperContent.insertAdjacentHTML('beforeend', markupSwiper);
 }
 
-
-// Перевірка фото
 const checkedImg = url =>
     `${!url
         ? `https://i.pinimg.com/originals/74/3d/b2/743db230d891b47c1d8c66b161111b91.jpg`
@@ -58,31 +68,20 @@ const checkedImg = url =>
 
 
 const swiper = new Swiper('.swiper', {
-    // Optional parameters
+    
     direction: 'horizontal',
     loop: true,
     lazy: true,
 
-    // // If we need pagination
-    // pagination: {
-    //     el: '.swiper-pagination',
-    // },
-
-    // Navigation arrows
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
     },
 
     autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
+        delay: 3000,
+        disableOnInteraction: true,
     },
-
-    // // And if we need scrollbar
-    // scrollbar: {
-    //     el: '.swiper-scrollbar',
-    // },
 
     breakpoints: {
 

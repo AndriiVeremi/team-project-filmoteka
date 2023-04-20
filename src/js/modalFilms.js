@@ -3,7 +3,6 @@ import 'basiclightbox/dist/basicLightbox.min.css';
 import Notiflix, { Notify } from 'notiflix';
 import getRefs from './refs.js';
 import APIservice from './fetch-API.js';
-import { swiper } from './swiper.js';
 
 const refs = getRefs();
 const API = new APIservice();
