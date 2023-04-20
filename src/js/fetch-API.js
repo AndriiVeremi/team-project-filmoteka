@@ -19,6 +19,17 @@ class ApiClient {
         }
     }
 
+    // Запит на список для слайдера
+    async getMoveSwiper() {
+        try {
+            const fetchLink = `${BASE_URL}/trending/movie/day?api_key=${API_KEY}&language=en-US&page=${3}`;
+            const response = await axios.get(fetchLink);
+            return response;
+        } catch (error) {
+            Notify.failure(`Sorry. Please try again.`);
+        }
+    }
+    
     // Запит за ключовим словом
     async getMoveName() {
         try {

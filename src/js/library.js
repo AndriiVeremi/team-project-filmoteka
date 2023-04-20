@@ -35,7 +35,7 @@ async function openLib() {
       message.classList.add('bgImageLid')
       message.textContent = "You haven't added movies yet. Please make your choise first";
       message.style.display = 'block'
-       message.style.textAlign = 'center'
+      message.style.textAlign = 'center'
       refs.gallery.before(message)
       return
     }else{

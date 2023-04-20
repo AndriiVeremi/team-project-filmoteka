@@ -3,11 +3,12 @@ import 'basiclightbox/dist/basicLightbox.min.css';
 import Notiflix, { Notify } from 'notiflix';
 import getRefs from './refs.js';
 import APIservice from './fetch-API.js';
+import { swiper } from './swiper.js';
 
 const refs = getRefs();
 const API = new APIservice();
 
-async function clickMove(event) {
+export async function clickMove(event) {
   event.preventDefault();
   const moveId = event.target.closest('li').dataset.id;
   try {
@@ -34,7 +35,7 @@ async function clickMove(event) {
 
 refs.gallery.addEventListener('click', clickMove);
 
-function renderModalFilms({
+export function renderModalFilms({
   poster_path,
   original_title,
   title,
