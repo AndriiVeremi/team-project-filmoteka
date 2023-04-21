@@ -66,7 +66,6 @@ const checkedImg = url =>
         : `https://image.tmdb.org/t/p/w500${url}`
     }`;
 
-
 const swiper = new Swiper('.swiper', {
 
     direction: 'horizontal',

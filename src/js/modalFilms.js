@@ -200,8 +200,17 @@ export function renderModalFilms({
   </div>
 </div>
 </div>`;
+  
+  const active = document.querySelector('.nav-btn.active');
+  let render = ''; 
 
-  const instance = basicLightbox.create(markup, {
+  if (active.textContent === 'HOME') {
+    render = markup;
+  } else {
+    render = markupLibrary;
+  }
+
+  const instance = basicLightbox.create(render, {
     onShow: instance => {
       refs.body.classList.add('no-scroll');
       window.addEventListener('keydown', event => closeModalEscape(event));
@@ -214,36 +223,13 @@ export function renderModalFilms({
     },
   });
 
-  const instanceLib = basicLightbox.create(markupLibrary, {
-    onShow: instanceLib => {
-      refs.body.classList.add('no-scroll');
-      window.addEventListener('keydown', event => closeModalEscape(event));
-      window.addEventListener('click', closeModalLibClick);
-    },
-    onClose: instanceLib => {
-      refs.body.classList.remove('no-scroll');
-      window.removeEventListener('keydown', event => closeModalEscape(event));
-      window.removeEventListener('click', closeModalLibClick);
-    },
-  });
-
-  document.body.addEventListener('click', closeModalClick);
-
-  const active = document.querySelector('.nav-btn.active');
-  if (active.textContent === 'HOME') {
-    instance.show()
-  } else {
-    instanceLib.show()
-  }
-
+  instance.show()
+  
   const buttonTreiler = document.querySelector('.button-open-trailer');
   buttonTreiler.addEventListener('click', clickTrailer);
 
   function closeModal() {
     instance.close();
-  }
-  function closeModalLib() {
-    instanceLib.close();
   }
 
   function closeModalEscape(event) {
@@ -257,12 +243,6 @@ export function renderModalFilms({
     const target = event.target.closest("#modal_movie .button-close");
     if (target) {
       closeModal();
-    }
-  }
-  function closeModalLibClick(event) {
-    const target = event.target.closest("#modal_movie .button-close");
-    if (target) {
-      closeModalLib();
     }
   }
 }
