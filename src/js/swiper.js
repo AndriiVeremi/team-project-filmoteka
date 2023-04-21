@@ -77,10 +77,10 @@ const swiper = new Swiper('.swiper', {
         prevEl: '.swiper-button-prev',
     },
 
-    autoplay: {
-        delay: 3000,
-        disableOnInteraction: true,
-    },
+    // autoplay: {
+    //     delay: 3000,
+    //     disableOnInteraction: true,
+    // },
 
     breakpoints: {
 
