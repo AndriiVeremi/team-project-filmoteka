@@ -49,7 +49,7 @@ function renderSwipe(results) {
             return `<div class="swiper-slide" data-id="${id}">           
     <a href="${checkedImg(poster_path)}" class="swiper-link">
       <div class="swiper-card">
-        <img class="swiper-photo" src="${checkedImg(poster_path)}" width="220" height="320" alt="${title}" loading="lazy" />
+        <img class="swiper-photo" src="${checkedImg(poster_path)}" width="219" height="320" alt="${title}" loading="lazy" />
       </div>
       <div class="swiper-info">
         <h2 class="swiper-title">${title}</h2>
@@ -77,10 +77,10 @@ const swiper = new Swiper('.swiper', {
         prevEl: '.swiper-button-prev',
     },
 
-    // autoplay: {
-    //     delay: 3000,
-    //     disableOnInteraction: true,
-    // },
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: true,
+    },
 
     breakpoints: {
 
