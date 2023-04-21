@@ -1,7 +1,5 @@
 import APIservice from './fetch-API.js';
-import { renderModalFilms } from './modalFilms.js';
-import { addToWatched, addToQueue, removeToWatched, removeToQueue } from './modalFilms.js';
-
+import { renderModalFilms, addToWatched, addToQueue, removeToWatched, removeToQueue } from './modalFilms.js';
 
 const API = new APIservice();
 
@@ -70,7 +68,7 @@ const checkedImg = url =>
 
 
 const swiper = new Swiper('.swiper', {
-    
+
     direction: 'horizontal',
     loop: true,
     lazy: true,
