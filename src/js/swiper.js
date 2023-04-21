@@ -1,5 +1,7 @@
 import APIservice from './fetch-API.js';
 import { renderModalFilms } from './modalFilms.js';
+import { addToWatched, addToQueue, removeToWatched, removeToQueue } from './modalFilms.js';
+
 
 const API = new APIservice();
 
@@ -14,18 +16,18 @@ export async function openFilm(event) {
         console.log(error);
     }
 
-    // const active = document.querySelector('.nav-btn.active');
-    // if (active.textContent === 'HOME') {
-    //     const wathcedAdd = document.querySelector(`[data-add="wathced"]`);
-    //     const queueAdd = document.querySelector(`[data-add="queue"]`);
-    //     wathcedAdd.addEventListener('click', addToWatched);
-    //     queueAdd.addEventListener('click', addToQueue);
-    // } else {
-    //     const wathcedRemove = document.querySelector(`[data-remove="wathced"]`);
-    //     const queueRemove = document.querySelector(`[data-remove="queue"]`);
-    //     wathcedRemove.addEventListener('click', removeToWatched);
-    //     queueRemove.addEventListener('click', removeToQueue);
-    // }
+    const active = document.querySelector('.nav-btn.active');
+    if (active.textContent === 'HOME') {
+        const wathcedAdd = document.querySelector(`[data-add="wathced"]`);
+        const queueAdd = document.querySelector(`[data-add="queue"]`);
+        wathcedAdd.addEventListener('click', addToWatched);
+        queueAdd.addEventListener('click', addToQueue);
+    } else {
+        const wathcedRemove = document.querySelector(`[data-remove="wathced"]`);
+        const queueRemove = document.querySelector(`[data-remove="queue"]`);
+        wathcedRemove.addEventListener('click', removeToWatched);
+        queueRemove.addEventListener('click', removeToQueue);
+    }
 }
 
 const swiperContent = document.querySelector('.swiper-wrapper');
