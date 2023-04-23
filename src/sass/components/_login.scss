@@ -1,0 +1,129 @@
+.signIn-wrapper {
+  text-align: center;
+  border-radius: 5%;
+  background-color: $white-text-cl;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 0px 0px 21px 3px $accent-text-cl;
+  padding: 10px;
+  margin: 10px;
+}
+
+.signIn-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.signIn-title {
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.17;
+  color: $black-text-cl;
+  margin-bottom: 20px;
+  @media screen and (min-width: $tablet) {
+    font-size: 32px;
+    margin-bottom: 28px;
+  }
+}
+
+.signIn-lable {
+  margin-bottom: 20px;
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 20px;
+  }
+}
+
+.signIn-input {
+  line-height: 30px;
+  padding: 10px 16px;
+  position: relative;
+  width: 100%;
+  color: $black-text-cl;
+  background-color: transparent;
+  border: transparent;
+  border-bottom: 0.5px solid $black-text-cl;
+  transition: border-bottom $cubic;
+  outline: none;
+  &:hover,
+  &:focus {
+    border-bottom: 1px solid $accent-text-cl;
+  }
+  &:hover::placeholder,
+  &:focus::placeholder {
+    color: $accent-text-cl;
+  }
+  @media screen and (min-width: $tablet) {
+    height: 50px;
+    line-height: 50px;
+  }
+
+  &::placeholder {
+    font-size: 20px;
+    color: $black-text-cl;
+    transition: border-bottom $cubic;
+  }
+}
+
+.signIn-button,
+.signUp-button {
+  cursor: pointer;
+  padding: 13px 0 13px 0;
+  margin-bottom: 15px;
+  font-size: 16px;
+  line-height: 1.33;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: $white-text-cl;
+  background: $warning-text-cl;
+  border: none;
+  border-radius: 5px;
+  transform: scale(1);
+  transition: box-shadow $cubic, border $cubic, transform $cubic;
+
+  &:hover,
+  &:focus {
+    transform: scale(0.9);
+  }
+}
+
+.signIn-text {
+  color: $black-text-cl;
+  font-style: 12px;
+  margin-bottom: 15px;
+  text-align: center;
+
+  @media screen and (min-width: $tablet) {
+    font-size: 20px;
+    font-weight: 400;
+  }
+}
+
+.signIn-form-pass {
+  padding: 13px 0 13px 0;
+  margin-bottom: 35px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.33;
+  cursor: pointer;
+  text-transform: uppercase;
+  color: $white-text-cl;
+  background-color: transparent;
+  border: 1px solid $white-text-cl;
+  border-radius: 5px;
+  transform: scale(1);
+  transition: transform $cubic, box-shadow $cubic, border $cubic,
+    background-color $cubic;
+
+  &:hover,
+  &:focus {
+    outline: none;
+    transform: scale(0.9);
+    background-color: $background-accent-cl;
+    border: 1px solid $background-accent-cl;
+    box-shadow: 0px 8px 43px $warning-text-cl;
+  }
+}
+
+
